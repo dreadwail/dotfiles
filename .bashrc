@@ -22,3 +22,6 @@ export PATH=/Users/byte/android-sdk-macosx/platform-tools:$PATH
 export PATH=/Users/byte/android-sdk-macosx/platforms:$PATH
 export PATH=/Users/byte/android-sdk-macosx/tools:$PATH
 export ANDROID_HOME=/Users/byte/android-sdk-macosx
+
+# Ad-hoc shell scripts
+export PATH=/Users/byte:$PATH
