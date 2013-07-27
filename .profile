@@ -1,1 +1,1 @@
-/Users/byte/.profile
+source ~/.bashrc
