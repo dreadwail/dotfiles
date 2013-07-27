@@ -7,7 +7,7 @@ set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
-"set nocompatible
+set number
 set guifont=Monaco:h14
 set textwidth=120
 set ruler
