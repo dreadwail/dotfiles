@@ -1,1 +1,7 @@
-/Users/byte/.gitconfig
+[user]
+	name = Ben Lakey
+	email = benlakey@gmail.com
+[color]
+	ui = true
+[core]
+	editor = vim

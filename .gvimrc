@@ -1,1 +1,1 @@
-/Users/byte/.gvimrc
+source ~/.vimrc
