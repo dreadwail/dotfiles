@@ -7,7 +7,7 @@ export PATH=$PATH:$HOME/.rvm/bin
 
 # MacVim
 export PATH=$PATH:$HOME/.macvim
-alias vim="mvim"
+alias vim="mvim -v"
 export EDITOR='mvim -f --nomru -c "au VimLeave * !open -a Terminal"'
 
 # Node
