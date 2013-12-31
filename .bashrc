@@ -2,10 +2,6 @@
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-# RVM
-export PATH=$PATH:$HOME/.rvm/bin
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 # MacVim
 export PATH=$PATH:$HOME/.macvim
 alias vim="mvim -v"
@@ -26,3 +22,7 @@ export ANDROID_HOME=/Users/byte/android-sdk-macosx
 
 # Ad-hoc shell scripts
 export PATH=/Users/byte:$PATH
+
+# RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
