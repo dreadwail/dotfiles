@@ -1,6 +1,7 @@
 # Shell colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+alias diff="colordiff"
 
 # MacVim
 export PATH=$PATH:$HOME/.macvim
