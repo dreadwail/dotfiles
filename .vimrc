@@ -10,4 +10,4 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 let NERDTreeShowHidden=1
-set backupdir=~/tmp
+set noswapfile
