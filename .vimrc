@@ -11,3 +11,4 @@ set tabstop=2
 set shiftwidth=2
 let NERDTreeShowHidden=1
 set noswapfile
+set ruler
