@@ -27,9 +27,15 @@ export ANDROID_HOME=/Users/byte/android-sdk-macosx
 
 # Ad-hoc shell scripts
 export PATH=/Users/byte:$PATH
+alias each="~/each"
+
+# Local postgres
+alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 
 # Ruby stuff
 alias be="bundle exec"
+alias rs="rails s"
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
