@@ -1,0 +1,3 @@
+#!/bin/bash
+
+for dir in ./*; do (echo "#####################" && cd "$dir" && pwd && $1); done
