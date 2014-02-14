@@ -28,6 +28,9 @@ export ANDROID_HOME=/Users/byte/android-sdk-macosx
 # Ad-hoc shell scripts
 export PATH=/Users/byte:$PATH
 
+# Ruby stuff
+alias be="bundle exec"
+
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
