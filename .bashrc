@@ -33,10 +33,12 @@ alias each="~/each"
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 
-# Ruby stuff
+# Ruby
 alias be="bundle exec"
-alias rs="rails s"
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# rbenv
+#eval "$(rbenv init -)"
