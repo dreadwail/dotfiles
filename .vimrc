@@ -5,6 +5,7 @@ set encoding=utf-8
 
 " NERDTree
 autocmd vimenter * NERDTree
+autocmd VimEnter * wincmd p
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeShowHidden=1
