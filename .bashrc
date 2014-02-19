@@ -36,6 +36,9 @@ alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 # Ruby
 alias be="bundle exec"
 
+# tmux
+export TERM="screen-256color"
+
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
