@@ -14,6 +14,7 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'Lokaltog/vim-powerline'
 " End Vundle
 
+set laststatus=2
 syntax on
 filetype plugin indent on
 set encoding=utf-8
