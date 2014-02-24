@@ -39,9 +39,5 @@ alias be="bundle exec"
 # tmux
 export TERM="screen-256color"
 
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 # rbenv
-#eval "$(rbenv init -)"
+eval "$(rbenv init -)"
