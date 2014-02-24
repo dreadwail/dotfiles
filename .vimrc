@@ -11,6 +11,7 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'kien/ctrlp.vim'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'Lokaltog/vim-powerline'
 " End Vundle
 
 syntax on
