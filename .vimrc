@@ -11,10 +11,9 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'kien/ctrlp.vim'
 Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/powerline'
 " End Vundle
 
-set laststatus=2
 syntax on
 filetype plugin indent on
 set encoding=utf-8
@@ -25,4 +24,10 @@ set tabstop=2
 set shiftwidth=2
 set noswapfile
 set ruler
+set ttimeoutlen=20
+
+" Powerline
+set laststatus=2
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+set noshowmode
 
