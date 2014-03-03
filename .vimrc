@@ -1,4 +1,4 @@
-" Begin Vundle
+" BEGIN Vundle
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -12,7 +12,9 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'kien/ctrlp.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'Lokaltog/powerline'
-" End Vundle
+Bundle 'scrooloose/nerdtree'
+Bundle 'flazz/vim-colorschemes'
+" END Vundle
 
 syntax on
 filetype plugin indent on
@@ -26,8 +28,17 @@ set noswapfile
 set ruler
 set ttimeoutlen=20
 
-" Powerline
-set laststatus=2
+" BEGIN Powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-set noshowmode
+"Always show status bar
+set laststatus=2 
+"Defer to Powerline instead of standard status bar
+set noshowmode 
+" END Powerline
 
+" BEGIN NERDTree
+" use ctrl-n to open
+map <C-n> :NERDTreeToggle<CR>
+" close vim if nerdtree is the last thing
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" END NERDTree
