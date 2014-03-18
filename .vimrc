@@ -14,6 +14,7 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'Lokaltog/powerline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'flazz/vim-colorschemes'
+Bundle 'ap/vim-css-color'
 " END Vundle
 
 syntax on
