@@ -9,3 +9,5 @@
 	default = simple
 [branch]
 	autosetupmerge = always
+[hub]
+	host = github.dev.pages
