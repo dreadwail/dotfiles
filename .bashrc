@@ -11,10 +11,6 @@ export EDITOR='mvim -f --nomru -c "au VimLeave * !open -a Terminal"'
 # Node
 export PATH=$PATH:/usr/local/share/npm/bin
 
-# Go
-export GOPATH=$HOME/Dropbox/Code/learning/go
-export PATH=$PATH:$GOPATH/bin
-
 # Java
 export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
 
@@ -38,6 +34,9 @@ alias be="bundle exec"
 
 # tmux
 export TERM="screen-256color"
+
+# hub
+alias git=hub
 
 # rbenv
 eval "$(rbenv init -)"
