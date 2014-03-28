@@ -1,13 +1,14 @@
 [user]
-	name = Ben Lakey
-	email = benlakey@gmail.com
+  name = Ben Lakey
+  email = benlakey@gmail.com
 [color]
-	ui = true
+  ui = true
 [core]
-	editor = vim
+  editor = vim
+  pager = less -r
 [push]
-	default = simple
+  default = simple
 [branch]
-	autosetupmerge = always
+  autosetupmerge = always
 [hub]
-	host = github.dev.pages
+  host = github.dev.pages
