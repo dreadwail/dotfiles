@@ -13,14 +13,14 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'Lokaltog/powerline'
 Bundle 'scrooloose/nerdtree'
-Bundle 'flazz/vim-colorschemes'
 Bundle 'ap/vim-css-color'
 " END Vundle
 
 syntax on
 filetype plugin indent on
 set encoding=utf-8
-colorscheme vibrantink
+set t_Co=256
+colorscheme railscasts
 set number
 set expandtab
 set tabstop=2
