@@ -14,8 +14,10 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'Lokaltog/powerline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ap/vim-css-color'
+Bundle 'despo/vim-ruby-refactoring'
 " END Vundle
 
+set guifont=Menlo\ for\ Powerline
 syntax on
 filetype plugin indent on
 set encoding=utf-8
@@ -28,6 +30,9 @@ set shiftwidth=2
 set noswapfile
 set ruler
 set ttimeoutlen=20
+
+"set listchars=trail:_
+"set list
 
 " BEGIN Powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -43,3 +48,6 @@ map <C-n> :NERDTreeToggle<CR>
 " close vim if nerdtree is the last thing
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " END NERDTree
+
+" Scheme
+autocmd filetype lisp,scheme,art setlocal equalprg=scmindent.rkt
