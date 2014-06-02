@@ -15,6 +15,8 @@ Bundle 'Lokaltog/powerline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ap/vim-css-color'
 Bundle 'despo/vim-ruby-refactoring'
+Bundle 'vim-scripts/slimv.vim'
+Bundle 'kien/rainbow_parentheses.vim'
 " END Vundle
 
 set guifont=Menlo\ for\ Powerline
@@ -31,9 +33,6 @@ set noswapfile
 set ruler
 set ttimeoutlen=20
 
-"set listchars=trail:_
-"set list
-
 " BEGIN Powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 "Always show status bar
@@ -49,5 +48,13 @@ map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " END NERDTree
 
-" Scheme
-autocmd filetype lisp,scheme,art setlocal equalprg=scmindent.rkt
+" BEGIN Rainbow parens
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+" END Rainbow parens
+
+" BEGIN Scheme
+autocmd filetype lisp,scheme,art setlocal equalprg=~/scmindent.rkt
+" END Scheme
