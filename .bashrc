@@ -12,35 +12,8 @@ export EDITOR='mvim -f --nomru -c "au VimLeave * !open -a Terminal"'
 export PATH=$PATH:/usr/local/share/npm/bin
 
 # Java
-export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
-
-# Android
-export PATH=/Users/byte/android-sdk-macosx:$PATH
-export PATH=/Users/byte/android-sdk-macosx/platform-tools:$PATH
-export PATH=/Users/byte/android-sdk-macosx/platforms:$PATH
-export PATH=/Users/byte/android-sdk-macosx/tools:$PATH
-export ANDROID_HOME=/Users/byte/android-sdk-macosx
-
-# Ad-hoc shell scripts
-export PATH=/Users/byte:$PATH
-alias each="~/each"
-
-# Local postgres
-alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
-
-# Scheme
-export MITSCHEME_LIBRARY_PATH="/Applications/MIT\:GNU\ Scheme.app/Contents/Resources"
-export MIT_SCHEME_EXE="/usr/local/scheme"
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
 # Ruby
-alias be="bundle exec"
-
-# tmux
-export TERM="screen-256color"
-
-# hub
-alias git=hub
-
-# rbenv
+source ~/.secrets
 eval "$(rbenv init -)"
