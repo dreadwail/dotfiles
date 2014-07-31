@@ -1,22 +1,23 @@
 " BEGIN Vundle
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'vim-scripts/matchit.zip'
-Bundle 'vim-scripts/ruby-matchit'
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'kien/ctrlp.vim'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'Lokaltog/powerline'
-Bundle 'scrooloose/nerdtree'
-Bundle 'ap/vim-css-color'
-Bundle 'despo/vim-ruby-refactoring'
-Bundle 'vim-scripts/slimv.vim'
-Bundle 'kien/rainbow_parentheses.vim'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/vundle'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'vim-scripts/matchit.zip'
+Plugin 'vim-scripts/ruby-matchit'
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'kien/ctrlp.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'Lokaltog/powerline'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ap/vim-css-color'
+Plugin 'despo/vim-ruby-refactoring'
+Plugin 'kovisoft/slimv'
+Plugin 'kien/rainbow_parentheses.vim'
+call vundle#end()
 " END Vundle
 
 set guifont=Menlo\ for\ Powerline
@@ -32,6 +33,7 @@ set shiftwidth=2
 set noswapfile
 set ruler
 set ttimeoutlen=20
+autocmd VimResized * wincmd =
 
 " BEGIN Powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
