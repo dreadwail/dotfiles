@@ -1,3 +1,5 @@
+source ~/.secrets
+
 # Shell colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
@@ -15,5 +17,5 @@ export PATH=$PATH:/usr/local/share/npm/bin
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
 # Ruby
-source ~/.secrets
+alias bers="bundle exec rails s"
 eval "$(rbenv init -)"
