@@ -10,3 +10,6 @@
   default = simple
 [branch]
   autosetupmerge = always
+[status]
+  short = true
+  branch = true
