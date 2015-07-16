@@ -1,4 +1,9 @@
 source ~/.secrets
+source ~/.workrc
+
+export PATH=$PATH:$HOME
+
+alias ?="find . -name $@"
 
 # Shell colors
 export CLICOLOR=1
