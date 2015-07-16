@@ -23,6 +23,7 @@ Plugin 'wting/rust.vim'
 call vundle#end()
 " END Vundle
 
+let mapleader=","
 set guifont=Menlo\ for\ Powerline
 syntax on
 filetype plugin indent on
@@ -49,8 +50,7 @@ set noshowmode
 " BEGIN NERDTree
 " use ctrl-n to open
 map <C-n> :NERDTreeToggle<CR>
-" close vim if nerdtree is the last thing
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=40
 " END NERDTree
@@ -83,6 +83,7 @@ let g:rbpt_colorpairs = [
 autocmd filetype lisp,scheme,art setlocal equalprg=~/scmindent.rkt
 " END Scheme
 
+" share clipboard between vim/osx
 set clipboard=unnamed
 
 " dont auto-insert comments on newline
