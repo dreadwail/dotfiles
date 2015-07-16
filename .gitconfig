@@ -10,6 +10,9 @@
   default = simple
 [branch]
   autosetupmerge = always
+	autosetuprebase = always
 [status]
   short = true
   branch = true
+[format]
+	pretty = format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
