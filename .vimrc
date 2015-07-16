@@ -50,6 +50,7 @@ map <C-n> :NERDTreeToggle<CR>
 " close vim if nerdtree is the last thing
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeShowHidden=1
+let g:NERDTreeWinSize=40
 " END NERDTree
 
 " BEGIN Rainbow parens
