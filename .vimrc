@@ -20,6 +20,7 @@ Plugin 'kovisoft/slimv'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'wting/rust.vim'
+Plugin 'rizzatti/dash.vim'
 call vundle#end()
 " END Vundle
 
