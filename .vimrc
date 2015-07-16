@@ -10,6 +10,7 @@ Plugin 'vim-scripts/ruby-matchit'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'kien/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'Lokaltog/powerline'
 Plugin 'scrooloose/nerdtree'
@@ -82,3 +83,11 @@ autocmd filetype lisp,scheme,art setlocal equalprg=~/scmindent.rkt
 " END Scheme
 
 set clipboard=unnamed
+
+" dont auto-insert comments on newline
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Ctrl-P
+let g:ctrlp_show_hidden = 1
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+let g:ctrlp_funky_syntax_highlight = 1
