@@ -5,6 +5,9 @@ export PATH=$PATH:$HOME
 
 alias ?="find . -name $@"
 
+alias grep="grep --color=always"
+alias less="less -R"
+
 # Shell colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
