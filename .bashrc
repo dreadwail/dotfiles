@@ -1,14 +1,11 @@
 source ~/.secrets
 source ~/.workrc
 
-export PATH=$PATH:$HOME
+export PATH=$PATH:$HOME:$HOME/bin
 
 alias ?="find . -name $@"
-
 alias grep="grep --color=always"
 alias less="less -R"
-
-export PATH=$PATH:$HOME/bin
 
 # Shell colors
 export CLICOLOR=1
