@@ -6,6 +6,7 @@
 [core]
   editor = vim
   pager = less -r
+	excludesfile = ~/.gitignore
 [push]
   default = simple
 [branch]
@@ -15,4 +16,6 @@
   short = true
   branch = true
 [format]
-	pretty = format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  pretty = format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
