@@ -19,6 +19,7 @@ Plugin 'despo/vim-ruby-refactoring'
 Plugin 'kovisoft/slimv'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'wting/rust.vim'
 call vundle#end()
 " END Vundle
 
