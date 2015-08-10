@@ -1,9 +1,9 @@
 source ~/.secrets
 source ~/.workrc
+source ~/git-completion.bash
 
 export PATH=$PATH:$HOME:$HOME/bin
 
-alias ?="find . -name $@"
 alias grep="grep --color=always"
 alias less="less -R"
 
