@@ -40,6 +40,9 @@ set ruler
 set ttimeoutlen=20
 autocmd VimResized * wincmd =
 
+" es6
+autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+
 " BEGIN Powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 "Always show status bar
