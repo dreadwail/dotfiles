@@ -1,6 +1,6 @@
 source ~/.secrets
 source ~/.workrc
-source ~/git-completion.bash
+source ~/.bash/git-completion.sh
 
 export PATH=$PATH:$HOME:$HOME/bin
 
