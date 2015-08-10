@@ -94,3 +94,4 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let g:ctrlp_show_hidden = 1
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 let g:ctrlp_funky_syntax_highlight = 1
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
