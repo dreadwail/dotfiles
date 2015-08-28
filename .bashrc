@@ -31,6 +31,7 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 # Ruby
 alias bers="bundle exec rails s"
 eval "$(rbenv init -)"
+alias tags="ctags -R --languages=ruby --exclude=.git --exclude=log . \$(bundle list --paths)"
 
 # Heroku
 export PATH="/usr/local/heroku/bin:$PATH"
