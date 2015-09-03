@@ -1,3 +1,6 @@
 .secrets
-.vim/bundle/
+.vim/bundle/*
+!.vim/bundle/Vundle.vim.symlink
+!.vim/bundle/Vundle.vim.symlink/
+!.vim/bundle/Vundle.vim.symlink/*
 .DS_Store
