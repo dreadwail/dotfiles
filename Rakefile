@@ -1,5 +1,4 @@
 require 'rake'
-require 'byebug'
 
 desc "Hook our dotfiles into system-standard positions."
 task :install do
