@@ -43,6 +43,11 @@ autocmd VimResized * wincmd =
 " es6
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 
+" spell check in markdown/rdoc files
+autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
+autocmd BufRead,BufNewFile *.markdown setlocal spell spelllang=en_us
+autocmd BufRead,BufNewFile *.rdoc setlocal spell spelllang=en_us
+
 " BEGIN Powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 "Always show status bar
