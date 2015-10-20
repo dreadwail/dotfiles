@@ -61,7 +61,7 @@ set noshowmode
 map <C-n> :NERDTreeToggle<CR>
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeShowHidden=1
-let g:NERDTreeWinSize=40
+let g:NERDTreeWinSize=38
 " END NERDTree
 
 " BEGIN Rainbow parens
@@ -103,3 +103,9 @@ let g:ctrlp_show_hidden = 1
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
+
+" some shortcuts
+:command! -nargs=? Rt !bundle exec rake test <f-args>
+:command! -nargs=? Rspec !bundle exec rspec <f-args>
+:abbrev rt Rt
+:abbrev rspec Rspec
