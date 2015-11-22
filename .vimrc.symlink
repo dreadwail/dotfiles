@@ -21,6 +21,12 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'wting/rust.vim'
 Plugin 'rizzatti/dash.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-rbenv'
+Plugin 'hwartig/vim-seeing-is-believing'
 call vundle#end()
 " END Vundle
 
@@ -104,8 +110,29 @@ nnoremap <Leader>fu :CtrlPFunky<Cr>
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
 
+" silver searcher
+let g:ackprg = 'ag --nogroup --column'
+let g:ctrlp_user_command = 'ag %s -l -g ""'
+set grepprg=ag\ --nogroup\ --path-to-agignore\ $HOME/.agignore
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
 " some shortcuts
 :command! -nargs=? Rt !bundle exec rake test <f-args>
 :command! -nargs=? Rspec !bundle exec rspec <f-args>
 :abbrev rt Rt
 :abbrev rspec Rspec
+
+" vim-ruby
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_rails = 1
+let g:rubycomplete_load_gemfile = 1
+inoremap <Nul> <C-x><C-o>
+
+" ctags / easytags
+nnoremap <Tab> <C-]>
+nnoremap <S-Tab> <C-t>
+
+" seeing is believing
+nmap <buffer> <S-r> <Plug>(seeing-is-believing-mark-and-run)
+xmap <buffer> <S-r> <Plug>(seeing-is-believing-mark-and-run)
+imap <buffer> <S-r> <Plug>(seeing-is-believing-mark-and-run)
