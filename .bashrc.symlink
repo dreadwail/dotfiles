@@ -23,7 +23,7 @@ alias gs="git status"
 # MacVim
 export PATH=$PATH:$HOME/.macvim
 alias vim="mvim -v"
-export EDITOR='mvim -f --nomru -c "au VimLeave * !open -a Terminal"'
+export EDITOR='mvim'
 
 # Java
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
