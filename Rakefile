@@ -68,8 +68,8 @@ task :ruby do
   `rm -rf ~/.rbenv/plugins/rbenv-default-gems`
   `git clone git://github.com/sstephenson/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems`
 
-  puts "Installing rubies..."
-  `rbenv install 2.2.3`
+  puts "\nInstalling rubies...\n"
+  `rbenv install -s 2.2.3`
   `rbenv global 2.2.3`
   `rbenv rehash`
 
