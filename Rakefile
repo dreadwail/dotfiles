@@ -2,42 +2,26 @@ require 'rake'
 
 desc "Hook our dotfiles into system-standard positions."
 task :symlink do
+  puts "\nSYMLINKING...\n"
+
   # please if you see this and are offended by it please drop some knowledge on me in a pull request
   linkables = (Dir.glob('**/*.symlink') + Dir.glob('**/.*.symlink') + Dir.glob('.*/**/*.symlink')).reject { |d| d.start_with?("..") }
 
-  skip_all = false
-  overwrite_all = false
-  backup_all = false
-
   linkables.each do |linkable|
-    overwrite = false
-    backup = false
-
     file = linkable.split('.symlink').last
     target = "#{ENV["HOME"]}/#{file}"
-
     if File.exists?(target) || File.symlink?(target)
-      unless skip_all || overwrite_all || backup_all
-        puts "File already exists: #{target}, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all"
-        case STDIN.gets.chomp
-        when 'o' then overwrite = true
-        when 'b' then backup = true
-        when 'O' then overwrite_all = true
-        when 'B' then backup_all = true
-        when 'S' then skip_all = true
-        when 's' then next
-        end
-      end
-      FileUtils.rm_rf(target) if overwrite || overwrite_all
-      `mv "$HOME/.#{file}" "$HOME/.#{file}.backup"` if backup || backup_all
+      FileUtils.rm_rf(target)
     end
+    puts "Symlinking #{$PWD}/#{linkable} -> #{target}"
     `mkdir -p "$(dirname "#{target}")"`
     `ln -s "$PWD/#{linkable}" "#{target}"`
   end
 end
 
 task :brew do
-  puts "BREWING..."
+  puts "\nBREWING...\n"
+
   `brew install ack`
   `brew install colordiff`
   `brew install ctags`
@@ -61,7 +45,7 @@ task :brew do
 end
 
 task :ruby do
-  puts "Installing rbenv plugins..."
+  puts "\nInstalling rbenv plugins...\n"
   `mkdir -p ~/.rbenv/plugins`
   `rm -rf ~/.rbenv/plugins/rbenv-ctags`
   `git clone git://github.com/tpope/rbenv-ctags.git ~/.rbenv/plugins/rbenv-ctags`
@@ -78,10 +62,10 @@ task :ruby do
 end
 
 task :vim do
-  puts "Ensuring vim is installed..."
+  puts "\nEnsuring vim is installed...\n"
   `brew install macvim`
 
-  puts "Installing vim plugins..."
+  puts "\nInstalling vim plugins...\n"
   `vim +PluginInstall +qall`
 end
 

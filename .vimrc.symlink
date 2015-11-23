@@ -136,5 +136,3 @@ nnoremap <S-Tab> <C-t>
 
 " seeing is believing
 nmap <buffer> <S-r> <Plug>(seeing-is-believing-mark-and-run)
-xmap <buffer> <S-r> <Plug>(seeing-is-believing-mark-and-run)
-imap <buffer> <S-r> <Plug>(seeing-is-believing-mark-and-run)
