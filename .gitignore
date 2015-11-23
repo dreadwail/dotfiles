@@ -4,3 +4,7 @@
 !.vim/bundle/Vundle.vim.symlink/
 !.vim/bundle/Vundle.vim.symlink/*
 .DS_Store
+.rbenv.symlink/plugins/
+.rbenv.symlink/shims/
+.rbenv.symlink/version
+.rbenv.symlink/versions/
