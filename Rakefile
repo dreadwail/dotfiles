@@ -27,6 +27,7 @@ task :brew do
   `brew install ctags`
   `brew install rbenv`
   `brew install go`
+  `brew install htop`
   `brew install jq`
   `brew install macvim`
   `brew install maven`
