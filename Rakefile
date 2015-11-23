@@ -63,13 +63,17 @@ end
 task :ruby do
   puts "Installing rbenv plugins..."
   `mkdir -p ~/.rbenv/plugins`
+  `rm -rf ~/.rbenv/plugins/rbenv-ctags`
   `git clone git://github.com/tpope/rbenv-ctags.git ~/.rbenv/plugins/rbenv-ctags`
+  `rm -rf ~/.rbenv/plugins/rbenv-default-gems`
   `git clone git://github.com/sstephenson/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems`
 
   puts "Installing rubies..."
   `rbenv install 2.2.3`
   `rbenv global 2.2.3`
   `rbenv rehash`
+
+  puts "\nRunning rbenv ctags...\n"
   `rbenv ctags`
 end
 

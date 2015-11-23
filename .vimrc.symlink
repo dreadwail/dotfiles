@@ -129,6 +129,8 @@ let g:rubycomplete_load_gemfile = 1
 inoremap <Nul> <C-x><C-o>
 
 " ctags / easytags
+let g:easytags_file='.git/tags'
+let g:easytags_auto_highlight = 0
 nnoremap <Tab> <C-]>
 nnoremap <S-Tab> <C-t>
 
