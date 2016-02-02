@@ -136,3 +136,6 @@ nnoremap <S-Tab> <C-t>
 
 " seeing is believing
 nmap <buffer> <S-r> <Plug>(seeing-is-believing-mark-and-run)
+
+" buffer switching
+nnoremap ` :b#<CR>
