@@ -49,6 +49,7 @@ autocmd VimResized * wincmd =
 
 " es6
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+autocmd BufRead,BufNewFile *.coffee setfiletype javascript
 
 " spell check in markdown/rdoc files
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
