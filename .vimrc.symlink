@@ -27,6 +27,7 @@ Plugin 'xolox/vim-easytags'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rbenv'
 Plugin 'hwartig/vim-seeing-is-believing'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 call vundle#end()
 " END Vundle
 
