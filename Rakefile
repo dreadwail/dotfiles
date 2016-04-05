@@ -30,9 +30,9 @@ task :brew do
   `brew install htop`
   `brew install jq`
   `brew install macvim`
+  `brew install markdown`
   `brew install maven`
   `brew install memcached`
-  `brew install ngrok`
   `brew install node`
   `brew install postgresql`
   `brew install rbenv`
