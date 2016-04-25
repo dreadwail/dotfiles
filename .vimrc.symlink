@@ -28,6 +28,8 @@ Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rbenv'
 Plugin 'hwartig/vim-seeing-is-believing'
 Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 call vundle#end()
 " END Vundle
 
@@ -47,9 +49,12 @@ set ruler
 set ttimeoutlen=20
 autocmd VimResized * wincmd =
 
-" es6
-autocmd BufRead,BufNewFile *.es6 setfiletype javascript
-autocmd BufRead,BufNewFile *.coffee setfiletype javascript
+" javascript
+autocmd BufRead,BufNewFile *.js setfiletype javascript.jsx
+autocmd BufRead,BufNewFile *.es6 setfiletype javascript.jsx
+autocmd BufRead,BufNewFile *.coffee setfiletype javascript.jsx
+let g:jsx_ext_required = 0
+let g:xml_syntax_folding = 0
 
 " spell check in markdown/rdoc files
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
