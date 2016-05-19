@@ -1,0 +1,20 @@
+"*":
+  core:
+    audioBeep: false
+    openEmptyEditorOnStart: false
+    projectHome: "/Users/byte/Dropbox/Code"
+    themes: [
+      "one-dark-ui"
+      "base16-tomorrow-dark-theme"
+    ]
+  editor:
+    fontSize: 16
+    preferredLineLength: 100
+    tabType: "soft"
+  "exception-reporting":
+    userId: "7350acc4-f3f1-e715-4c22-422f5f24cbad"
+  "vim-mode-plus":
+    highlightSearch: true
+    useClipboardAsDefaultRegister: true
+  welcome:
+    showOnStartup: false
