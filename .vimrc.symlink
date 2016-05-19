@@ -30,6 +30,7 @@ Plugin 'hwartig/vim-seeing-is-believing'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'elixir-lang/vim-elixir'
 call vundle#end()
 " END Vundle
 
