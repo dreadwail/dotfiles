@@ -1,21 +1,48 @@
 require 'rake'
 
+SYMLINK_MANIFEST = %w(
+  Library/KeyBindings/DefaultKeyBinding.dict 
+  .ackrc 
+  .bash 
+  .bash_profile 
+  .bashrc 
+  .colordiffrc 
+  .git_template 
+  .gitconfig 
+  .gitignore 
+  .gvimrc 
+  .inputrc 
+  .profile 
+  .vimrc 
+  .zshrc 
+  .atom/config.cson 
+  .atom/init.coffee 
+  .atom/keymap.cson 
+  .rbenv/default-gems 
+  .rbenv/plugins 
+  .vim/after 
+  .vim/bundle/Vundle.vim 
+  .vim/colors 
+)
+
 desc "Hook our dotfiles into system-standard positions."
 task :symlink do
   puts "\nSYMLINKING...\n"
 
-  # please if you see this and are offended by it please drop some knowledge on me in a pull request
-  linkables = (Dir.glob('**/*.symlink') + Dir.glob('**/.*.symlink') + Dir.glob('.*/**/*.symlink')).reject { |d| d.start_with?("..") }
-
-  linkables.each do |linkable|
-    file = linkable.split('.symlink').last
-    target = "#{ENV["HOME"]}/#{file}"
+  SYMLINK_MANIFEST.each do |linkable|
+    target = "#{ENV["HOME"]}/#{linkable}"
+    existed = false
     if File.exists?(target) || File.symlink?(target)
-      FileUtils.rm_rf(target)
+      existed = true
+      FileUtils.rm_r(target)
     end
-    puts "Symlinking #{$PWD}/#{linkable} -> #{target}"
+    source = "#{Dir.pwd}/symlinks/#{linkable}"
+    printable_source = "symlinks/#{linkable}"
+    extra = "(deleted previous existing)" if existed
+    printable_target = "~/#{linkable}"
+    printf "%-30s %-4s %-35s %s\n", printable_target, "->", printable_source, extra
     `mkdir -p "$(dirname "#{target}")"`
-    `ln -s "$PWD/#{linkable}" "#{target}"`
+    `ln -s "#{source}" "#{target}"`
   end
 end
 
