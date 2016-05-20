@@ -8,3 +8,8 @@
 .rbenv.symlink/shims/
 .rbenv.symlink/version
 .rbenv.symlink/versions/
+.DS_Store
+.project
+.settings/
+.classpath
+tags
