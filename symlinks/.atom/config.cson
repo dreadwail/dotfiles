@@ -1,6 +1,13 @@
 "*":
+  "bracket-matcher":
+    autocompleteBrackets: false
+    autocompleteSmartQuotes: false
+    wrapSelectionsInBrackets: false
   core:
     audioBeep: false
+    disabledPackages: [
+      "snippets"
+    ]
     openEmptyEditorOnStart: false
     projectHome: "/Users/byte/Dropbox/Code"
     themes: [
@@ -18,3 +25,9 @@
     useClipboardAsDefaultRegister: true
   welcome:
     showOnStartup: false
+".erb.html.text":
+  editor:
+    preferredLineLength: 100
+".ruby.source":
+  editor:
+    preferredLineLength: 100
