@@ -23,7 +23,6 @@ Plugin 'wting/rust.vim'
 Plugin 'rizzatti/dash.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rbenv'
 Plugin 'hwartig/vim-seeing-is-believing'
@@ -135,12 +134,6 @@ let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 let g:rubycomplete_load_gemfile = 1
 inoremap <Nul> <C-x><C-o>
-
-" ctags / easytags
-let g:easytags_file='.git/tags'
-let g:easytags_auto_highlight = 0
-nnoremap <Tab> <C-]>
-nnoremap <S-Tab> <C-t>
 
 " seeing is believing
 nmap <buffer> <S-r> <Plug>(seeing-is-believing-mark-and-run)
