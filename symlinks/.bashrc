@@ -17,9 +17,6 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 alias diff="colordiff"
 
-# Git
-alias gs="git status"
-
 # MacVim
 export PATH=$PATH:$HOME/.macvim
 alias vim="mvim -v"
