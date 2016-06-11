@@ -1,28 +1,29 @@
 require 'rake'
 
 SYMLINK_MANIFEST = %w(
-  Library/KeyBindings/DefaultKeyBinding.dict 
-  .ackrc 
-  .bash 
-  .bash_profile 
-  .bashrc 
-  .colordiffrc 
-  .git_template 
-  .gitconfig 
-  .gitignore 
-  .gvimrc 
-  .inputrc 
-  .profile 
-  .vimrc 
-  .zshrc 
-  .atom/config.cson 
-  .atom/init.coffee 
-  .atom/keymap.cson 
-  .rbenv/default-gems 
-  .rbenv/plugins 
-  .vim/after 
-  .vim/bundle/Vundle.vim 
-  .vim/colors 
+  Library/KeyBindings/DefaultKeyBinding.dict
+  .ackrc
+  .bash
+  .bash_profile
+  .bashrc
+  .colordiffrc
+  .git_template
+  .gitconfig
+  .gitignore
+  .gvimrc
+  .hushlogin 
+  .inputrc
+  .profile
+  .vimrc
+  .zshrc
+  .atom/config.cson
+  .atom/init.coffee
+  .atom/keymap.cson
+  .rbenv/default-gems
+  .rbenv/plugins
+  .vim/after
+  .vim/bundle/Vundle.vim
+  .vim/colors
 )
 
 desc "Hook our dotfiles into system-standard positions."
@@ -108,10 +109,10 @@ task :uninstall do
     if File.symlink?(target)
       FileUtils.rm(target)
     end
-    
+
     # Replace any backups made during installation
     if File.exists?("#{ENV["HOME"]}/.#{file}.backup")
-      `mv "$HOME/.#{file}.backup" "$HOME/.#{file}"` 
+      `mv "$HOME/.#{file}.backup" "$HOME/.#{file}"`
     end
 
   end
