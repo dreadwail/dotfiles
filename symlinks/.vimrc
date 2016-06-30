@@ -3,37 +3,28 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/vundle'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'vim-scripts/matchit.zip'
-Plugin 'vim-scripts/ruby-matchit'
-Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'Lokaltog/powerline'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ap/vim-css-color'
-Plugin 'despo/vim-ruby-refactoring'
-Plugin 'kovisoft/slimv'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'wting/rust.vim'
-Plugin 'rizzatti/dash.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'xolox/vim-misc'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-rbenv'
-Plugin 'hwartig/vim-seeing-is-believing'
-Plugin 'JamshedVesuna/vim-markdown-preview'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'elixir-lang/vim-elixir'
+Plugin 'gmarik/vundle'                      " plugin installer
+Plugin 'vim-ruby/vim-ruby'                  " syntax highlighting for ruby
+Plugin 'kana/vim-textobj-user'              " dependency of vim-textobj-rubyblock
+Plugin 'nelstrom/vim-textobj-rubyblock'     " select ruby code class/module/method/blocks
+Plugin 'ctrlpvim/ctrlp.vim'                 " fuzzy finder
+Plugin 'powerline/powerline'                " status bar at the bottom of the screen
+Plugin 'scrooloose/nerdtree'                " file explorer
+Plugin 'ap/vim-css-color'                   " preview css colors when typing them
+Plugin 'tmhedberg/matchit'                  " dependency of vim-ruby-refactoring
+Plugin 'despo/vim-ruby-refactoring'         " https://justinram.wordpress.com/2010/12/30/vim-ruby-refactoring-series/
+Plugin 'kien/rainbow_parentheses.vim'       " color-matched parens/braces for easy visual inspection
+Plugin 't9md/vim-ruby-xmpfilter'            " visual execution of selected code
+Plugin 'JamshedVesuna/vim-markdown-preview' " preview markdown files in your web browser
+Plugin 'pangloss/vim-javascript'            " required by vim-jsx
+Plugin 'mxw/vim-jsx'                        " react jsx syntax highlighting/indenting
+Plugin 'elixir-lang/vim-elixir'             " elixir support
+Plugin 'ngmy/vim-rubocop'                   " run rubocop inline in vim
+Plugin 'scrooloose/syntastic'               " automatic errors/warnings in realtime
 call vundle#end()
 " END Vundle
 
-let mapleader=","
+" BEGIN vanilla vim defaults
 set guifont=Menlo\ for\ Powerline
 syntax on
 filetype plugin indent on
@@ -47,34 +38,35 @@ set shiftwidth=2
 set noswapfile
 set ruler
 set ttimeoutlen=20
-autocmd VimResized * wincmd =
+set clipboard=unnamed " share clipboard between vim/osx
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " dont auto-insert comments on newline
+" switch to last buffer via tilde
+nnoremap ` :b#<CR>
+let mapleader = "\<tab>"
+" END vanilla vim defaults
 
-" javascript
-autocmd BufRead,BufNewFile *.js setfiletype javascript.jsx
-autocmd BufRead,BufNewFile *.es6 setfiletype javascript.jsx
-autocmd BufRead,BufNewFile *.coffee setfiletype javascript.jsx
-let g:jsx_ext_required = 0
-let g:xml_syntax_folding = 0
+" BEGIN javascript/es6/jsx
+let g:jsx_ext_required = 0  " treat any javascript file as JSX capable
+" END javascript/es6/jsx
 
-" spell check in markdown/rdoc files
+" BEGIN spell check in markdown
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
 autocmd BufRead,BufNewFile *.markdown setlocal spell spelllang=en_us
-autocmd BufRead,BufNewFile *.rdoc setlocal spell spelllang=en_us
+" END spell check in markdown
 
 " BEGIN Powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-"Always show status bar
-set laststatus=2 
-"Defer to Powerline instead of standard status bar
-set noshowmode 
+set laststatus=2 " Always show status bar
+set noshowmode "Defer to Powerline instead of standard status bar
 " END Powerline
 
 " BEGIN NERDTree
 " use ctrl-n to open
 map <C-n> :NERDTreeToggle<CR>
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-let NERDTreeShowHidden=1
+let g:NERDTreeShowHidden=1
 let g:NERDTreeWinSize=38
+let g:NERDTreeMinimalUI=1   " dont show the help text at the top
+let g:NERDTreeCascadeOpenSingleChildDir=1   " open single directory paths recursively
 " END NERDTree
 
 " BEGIN Rainbow parens
@@ -101,42 +93,42 @@ let g:rbpt_colorpairs = [
     \ ]
 " END Rainbow parens
 
-" BEGIN Scheme
-autocmd filetype lisp,scheme,art setlocal equalprg=~/scmindent.rkt
-" END Scheme
-
-" share clipboard between vim/osx
-set clipboard=unnamed
-
-" dont auto-insert comments on newline
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" Ctrl-P
+" BEGIN Ctrl-P
 let g:ctrlp_show_hidden = 1
-nnoremap <Leader>fu :CtrlPFunky<Cr>
-let g:ctrlp_funky_syntax_highlight = 1
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:30,results:30'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|node_modules$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+" END Ctrl-P
 
-" silver searcher
-let g:ackprg = 'ag --nogroup --column'
-let g:ctrlp_user_command = 'ag %s -l -g ""'
-set grepprg=ag\ --nogroup\ --path-to-agignore\ $HOME/.agignore
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
-" some shortcuts
-:command! -nargs=? Rt !bundle exec rake test <f-args>
-:command! -nargs=? Rspec !bundle exec rspec <f-args>
-:abbrev rt Rt
-:abbrev rspec Rspec
-
-" vim-ruby
+" BEGIN vim-ruby
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 let g:rubycomplete_load_gemfile = 1
 inoremap <Nul> <C-x><C-o>
+" END vim-ruby
 
-" seeing is believing
-nmap <buffer> <S-r> <Plug>(seeing-is-believing-mark-and-run)
+" BEGIN seeing-is-believing
+let g:xmpfilter_cmd = "seeing_is_believing"
+autocmd FileType ruby nmap <buffer> <C-r> <Plug>(seeing_is_believing-clean) <Plug>(seeing_is_believing-mark) <Plug>(seeing_is_believing-run)
+autocmd FileType ruby xmap <buffer> <C-r> <Plug>(seeing_is_believing-clean) <Plug>(seeing_is_believing-mark) <Plug>(seeing_is_believing-run)
+autocmd FileType ruby imap <buffer> <C-r> <Plug>(seeing_is_believing-clean) <Plug>(seeing_is_believing-mark) <Plug>(seeing_is_believing-run)
+" END seeing-is-believing
 
-" buffer switching
-nnoremap ` :b#<CR>
+" BEGIN rubocop
+let g:vimrubocop_config = '~/.rubocop.yml'
+" END rubocop
+
+" BEGIN syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_enable_signs=1
+" END syntastic
