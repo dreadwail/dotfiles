@@ -31,6 +31,3 @@ eval "$(rbenv init -)"
 
 # Heroku
 export PATH="/usr/local/heroku/bin:$PATH"
-
-# Learn you an Atom
-alias vim="atom ."
