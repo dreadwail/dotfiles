@@ -298,7 +298,7 @@ Style/DotPosition:
 Style/DoubleNegation:
   Description: 'Checks for uses of double negation (!!).'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-bang-bang'
-  Enabled: true
+  Enabled: false
 
 Style/EachForSimpleLoop:
   Description: >-
