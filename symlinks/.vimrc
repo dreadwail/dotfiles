@@ -44,6 +44,11 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o "
 " switch to last buffer via tilde
 nnoremap ` :b#<CR>
 let mapleader = "\<tab>"
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+set nofoldenable
 " END vanilla vim defaults
 
 " BEGIN javascript/es6/jsx
