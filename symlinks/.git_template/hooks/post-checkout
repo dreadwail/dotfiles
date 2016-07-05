@@ -1,2 +1,6 @@
 #!/bin/sh
 .git/hooks/ctags
+
+if type ".git/hooks/ctags" > /dev/null; then
+  .git/hooks/ctags
+fi

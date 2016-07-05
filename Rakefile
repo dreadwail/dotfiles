@@ -71,6 +71,7 @@ task :brew do
   `brew install tree`
   `brew install watch`
   `brew install wget`
+  `brew install cmake`
 end
 
 task :ruby do
@@ -93,6 +94,9 @@ end
 task :vim do
   puts "\nEnsuring vim is installed...\n"
   `brew install macvim`
+
+  puts "\nPreparing Vundle\n"
+  `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 
   puts "\nInstalling vim plugins...\n"
   `vim +PluginInstall +qall`
