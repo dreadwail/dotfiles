@@ -3,7 +3,7 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/vundle'                      " plugin installer
+Plugin 'VundleVim/Vundle.vim'               " plugin installer
 Plugin 'vim-ruby/vim-ruby'                  " syntax highlighting for ruby
 Plugin 'kana/vim-textobj-user'              " dependency of vim-textobj-rubyblock
 Plugin 'nelstrom/vim-textobj-rubyblock'     " select ruby code class/module/method/blocks
@@ -21,6 +21,7 @@ Plugin 'mxw/vim-jsx'                        " react jsx syntax highlighting/inde
 Plugin 'elixir-lang/vim-elixir'             " elixir support
 Plugin 'ngmy/vim-rubocop'                   " run rubocop inline in vim
 Plugin 'scrooloose/syntastic'               " automatic errors/warnings in realtime
+Plugin 'Valloric/YouCompleteMe'             " auto-completion
 call vundle#end()
 " END Vundle
 
@@ -126,9 +127,14 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0 " https://github.com/scrooloose/syntastic/issues/400
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_enable_signs=1
+let g:syntastic_ruby_rubocop_exec='~/rubocop.sh'
 " END syntastic
+
+" BEGIN youcompleteme
+let g:ycm_key_list_select_completion = ['<ENTER>', '<TAB>', '<Down>']
+" END youcompleteme
