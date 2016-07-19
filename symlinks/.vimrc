@@ -49,6 +49,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 set nofoldenable
+" omnicompletion coloring
+hi Pmenu ctermfg=242 ctermbg=0 guibg=DarkGrey
+hi PmenuSel ctermfg=15 ctermbg=4 guibg=DarkGrey
 " END vanilla vim defaults
 
 " BEGIN javascript/es6/jsx
