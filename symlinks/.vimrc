@@ -141,8 +141,5 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_enable_signs=1
 let g:syntastic_ruby_rubocop_exec='~/rubocop.sh'
+let g:syntastic_loc_list_height=3
 " END syntastic
-
-" BEGIN youcompleteme
-let g:ycm_key_list_select_completion = ['<ENTER>', '<TAB>', '<Down>']
-" END youcompleteme
