@@ -341,7 +341,7 @@ Style/EmptyLinesAroundBlockBody:
 
 Style/EmptyLinesAroundClassBody:
   Description: "Keeps track of empty lines around class bodies."
-  Enabled: true
+  Enabled: false
 
 Style/EmptyLinesAroundModuleBody:
   Description: "Keeps track of empty lines around module bodies."
@@ -1991,7 +1991,7 @@ Style/EmptyLinesAroundClassBody:
     - no_empty_lines
 
 Style/EmptyLinesAroundModuleBody:
-  EnforcedStyle: no_empty_lines
+  EnforcedStyle: empty_lines
   SupportedStyles:
     - empty_lines
     - no_empty_lines
