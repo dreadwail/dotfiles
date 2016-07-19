@@ -19,6 +19,7 @@ alias diff="colordiff"
 
 # MacVim
 export PATH=$PATH:$HOME/.macvim
+alias vi="mvim -v"
 alias vim="mvim -v"
 export EDITOR='mvim'
 
