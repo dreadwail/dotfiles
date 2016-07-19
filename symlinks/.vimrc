@@ -120,9 +120,9 @@ inoremap <Nul> <C-x><C-o>
 
 " BEGIN seeing-is-believing
 let g:xmpfilter_cmd = "seeing_is_believing"
-autocmd FileType ruby nmap <buffer> <C-r> <Plug>(seeing_is_believing-clean) <Plug>(seeing_is_believing-mark) <Plug>(seeing_is_believing-run)
-autocmd FileType ruby xmap <buffer> <C-r> <Plug>(seeing_is_believing-clean) <Plug>(seeing_is_believing-mark) <Plug>(seeing_is_believing-run)
-autocmd FileType ruby imap <buffer> <C-r> <Plug>(seeing_is_believing-clean) <Plug>(seeing_is_believing-mark) <Plug>(seeing_is_believing-run)
+autocmd FileType ruby nmap <buffer> <C-b> <Plug>(seeing_is_believing-clean) <Plug>(seeing_is_believing-mark) <Plug>(seeing_is_believing-run)
+autocmd FileType ruby xmap <buffer> <C-b> <Plug>(seeing_is_believing-clean) <Plug>(seeing_is_believing-mark) <Plug>(seeing_is_believing-run)
+autocmd FileType ruby imap <buffer> <C-b> <Plug>(seeing_is_believing-clean) <Plug>(seeing_is_believing-mark) <Plug>(seeing_is_believing-run)
 " END seeing-is-believing
 
 " BEGIN rubocop
