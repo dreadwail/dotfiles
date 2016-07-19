@@ -17,3 +17,19 @@ atom.commands.add 'atom-workspace', 'vim-mode-plus:toggle-enabled', ->
   else
     disabledPackages.splice(disabledPackageIndex, 1)
   atom.config.set('core.disabledPackages', disabledPackages)
+
+
+consumeService = (packageName, providerName, fn) ->
+  disposable = atom.packages.onDidActivatePackage (pack) ->
+    return unless pack.name is packageName
+    service = pack.mainModule[providerName]()
+    fn(service)
+    disposable.dispose()
+
+consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
+  {observeVimStates} = service
+
+  observeVimStates (vimState) ->
+    vimState.modeManager.onDidDeactivateMode ({mode}) ->
+      if mode is 'insert'
+        vimState.editor.clearSelections()
