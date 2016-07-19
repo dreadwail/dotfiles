@@ -43,7 +43,7 @@ set clipboard=unnamed " share clipboard between vim/osx
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " dont auto-insert comments on newline
 " switch to last buffer via tilde
 nnoremap ` :b#<CR>
-let mapleader = "\<tab>"
+" let mapleader = "\<tab>"
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
