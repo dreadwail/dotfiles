@@ -32,3 +32,6 @@ eval "$(rbenv init -)"
 
 # Heroku
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# Yarn
+export PATH="$PATH:`yarn global bin`"
