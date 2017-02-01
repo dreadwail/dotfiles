@@ -21,7 +21,7 @@ alias diff="colordiff"
 export PATH=$PATH:$HOME/.macvim
 alias vi="mvim -v"
 alias vim="mvim -v"
-export EDITOR='mvim'
+export EDITOR="mvim"
 
 # Java
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`

@@ -1,3 +1,4 @@
 --ignore-dir=coverage/
 --ignore-dir=log/
+--ignore-dir=dist/
 --ignore-file=match:tags
