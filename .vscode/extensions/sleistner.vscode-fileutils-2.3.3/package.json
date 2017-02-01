@@ -1,0 +1,141 @@
+{
+	"name": "vscode-fileutils",
+	"displayName": "File Utils",
+	"description": "A convenient way of creating, duplicating, moving, renaming and deleting files and directories.",
+	"version": "2.3.3",
+	"license": "MIT",
+	"publisher": "sleistner",
+	"engines": {
+		"vscode": "^1.0.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"icon": "images/icon.png",
+	"galleryBanner": {
+		"color": "#5c2d91",
+		"theme": "dark"
+	},
+	"bugs": {
+		"url": "https://github.com/sleistner/vscode-fileutils/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sleistner/vscode-fileutils.git"
+	},
+	"homepage": "https://github.com/sleistner/vscode-fileutils/blob/master/README.md",
+	"activationEvents": [
+		"onCommand:fileutils.renameFile",
+		"onCommand:fileutils.moveFile",
+		"onCommand:fileutils.duplicateFile",
+		"onCommand:fileutils.removeFile",
+		"onCommand:fileutils.newFile",
+		"onCommand:fileutils.newFileAtRoot",
+		"onCommand:fileutils.newFolder",
+		"onCommand:fileutils.newFolderAtRoot"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "fileutils.renameFile",
+				"category": "File",
+				"title": "Rename"
+			},
+			{
+				"command": "fileutils.moveFile",
+				"category": "File",
+				"title": "Move"
+			},
+			{
+				"command": "fileutils.duplicateFile",
+				"category": "File",
+				"title": "Duplicate"
+			},
+			{
+				"command": "fileutils.removeFile",
+				"category": "File",
+				"title": "Delete"
+			},
+			{
+				"command": "fileutils.newFile",
+				"category": "File",
+				"title": "New File Relative to Current View"
+			},
+			{
+				"command": "fileutils.newFileAtRoot",
+				"category": "File",
+				"title": "New File Relative to Project Root"
+			},
+			{
+				"command": "fileutils.newFolder",
+				"category": "File",
+				"title": "New Folder Relative to Current View"
+			},
+			{
+				"command": "fileutils.newFolderAtRoot",
+				"category": "File",
+				"title": "New Folder Relative to Project Root"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "fileutils.moveFile",
+					"group": "edit"
+				},
+				{
+					"command": "fileutils.duplicateFile",
+					"group": "edit"
+				}
+			],
+			"editor/context": [
+				{
+					"command": "fileutils.moveFile",
+					"group": "edit"
+				},
+				{
+					"command": "fileutils.duplicateFile",
+					"group": "edit"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "./node_modules/.bin/tsc -p ./",
+		"compile": "tsc -p -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test",
+		"lint": "tslint -e './node_modules/**/*.ts' -e './typings/**/*.ts' './**/*.ts'",
+		"validate": "nsp check"
+	},
+	"devDependencies": {
+		"@types/chai": "^3.4.34",
+		"@types/mocha": "^2.2.32",
+		"@types/node": "^6.0.45",
+		"@types/sinon": "^1.16.31",
+		"@types/sinon-chai": "^2.7.27",
+		"chai": "^3.5.0",
+		"nsp": "^2.6.1",
+		"precommit-hook-eslint": "^3.0.0",
+		"sinon": "^1.17.4",
+		"sinon-chai": "^2.8.0",
+		"tslint": "^3.13.0",
+		"typescript": "^2.0.3",
+		"vscode": "^1.0.0"
+	},
+	"dependencies": {
+		"@types/fs-extra-promise": "0.0.30",
+		"fs-extra-promise": "^0.4.0"
+	},
+	"pre-commit": [
+		"lint",
+		"validate",
+		"test"
+	],
+	"__metadata": {
+		"id": "d637104e-1fd7-4063-98fc-8afe46012c9b",
+		"publisherId": "99ce6203-6065-4d93-983f-c3a097ebbfe2",
+		"publisherDisplayName": "Steffen Leistner"
+	}
+}
