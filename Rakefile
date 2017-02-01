@@ -72,6 +72,7 @@ task :brew do
   `brew install watch`
   `brew install wget`
   `brew install cmake`
+  `brew install yarn`
 end
 
 task :ruby do
