@@ -8,7 +8,6 @@ Plugin 'vim-ruby/vim-ruby'                  " syntax highlighting for ruby
 Plugin 'kana/vim-textobj-user'              " dependency of vim-textobj-rubyblock
 Plugin 'nelstrom/vim-textobj-rubyblock'     " select ruby code class/module/method/blocks
 Plugin 'ctrlpvim/ctrlp.vim'                 " fuzzy finder
-Plugin 'powerline/powerline'                " status bar at the bottom of the screen
 Plugin 'scrooloose/nerdtree'                " file explorer
 Plugin 'ap/vim-css-color'                   " preview css colors when typing them
 Plugin 'tmhedberg/matchit'                  " dependency of vim-ruby-refactoring
@@ -20,7 +19,6 @@ Plugin 'pangloss/vim-javascript'            " required by vim-jsx
 Plugin 'mxw/vim-jsx'                        " react jsx syntax highlighting/indenting
 Plugin 'elixir-lang/vim-elixir'             " elixir support
 Plugin 'ngmy/vim-rubocop'                   " run rubocop inline in vim
-Plugin 'scrooloose/syntastic'               " automatic errors/warnings in realtime
 Plugin 'Valloric/YouCompleteMe'             " auto-completion
 call vundle#end()
 " END Vundle
@@ -62,12 +60,6 @@ let g:jsx_ext_required = 0  " treat any javascript file as JSX capable
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
 autocmd BufRead,BufNewFile *.markdown setlocal spell spelllang=en_us
 " END spell check in markdown
-
-" BEGIN Powerline
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-set laststatus=2 " Always show status bar
-set noshowmode "Defer to Powerline instead of standard status bar
-" END Powerline
 
 " BEGIN NERDTree
 " use ctrl-n to open
@@ -129,17 +121,4 @@ autocmd FileType ruby imap <buffer> <C-b> <Plug>(seeing_is_believing-clean) <Plu
 let g:vimrubocop_config = '~/.rubocop.yml'
 " END rubocop
 
-" BEGIN syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0 " https://github.com/scrooloose/syntastic/issues/400
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_enable_highlighting = 1
-let g:syntastic_enable_signs=1
-let g:syntastic_ruby_rubocop_exec='~/rubocop.sh'
-let g:syntastic_loc_list_height=3
-" END syntastic
+set completeopt-=preview
