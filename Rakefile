@@ -1,30 +1,33 @@
 require 'rake'
 
-SYMLINK_MANIFEST = %w(
-  Library/KeyBindings/DefaultKeyBinding.dict
-  .ackrc
-  .bash
-  .bash_profile
-  .bashrc
-  .colordiffrc
-  .git_template
-  .gitconfig
-  .gitignore
-  .gvimrc
-  .hushlogin 
-  .inputrc
-  .profile
-  .vimrc
-  .zshrc
-  .atom/config.cson
-  .atom/init.coffee
-  .atom/keymap.cson
-  .rbenv/default-gems
-  .rbenv/plugins
-  .vim/after
-  .vim/bundle/Vundle.vim
-  .vim/colors
-)
+SYMLINK_MANIFEST = [
+  "Library/KeyBindings/DefaultKeyBinding.dict",
+  "Library/Application Support/Code/User/settings.json",
+  "Library/Application Support/Code/User/keybindings.json",
+  ".ackrc",
+  ".bash",
+  ".bash_profile",
+  ".bashrc",
+  ".colordiffrc",
+  ".git_template",
+  ".gitconfig",
+  ".gitignore",
+  ".gvimrc",
+  ".hushlogin ",
+  ".inputrc",
+  ".profile",
+  ".vimrc",
+  ".zshrc",
+  ".atom/config.cson",
+  ".atom/init.coffee",
+  ".atom/keymap.cson",
+  ".rbenv/default-gems",
+  ".rbenv/plugins",
+  ".vim/after",
+  ".vim/bundle/Vundle.vim",
+  ".vim/colors"
+  ".vscode"
+]
 
 desc "Hook our dotfiles into system-standard positions."
 task :symlink do

@@ -1,0 +1,60 @@
+{
+	"name": "scheme",
+	"displayName": "Scheme",
+	"description": "Scheme language support for Visual Studio Code",
+	"version": "0.0.2",
+	"publisher": "rebornix",
+	"author": {
+		"name": "Peng Lv"
+	},
+	"contributors": [
+		{
+			"name": "Peng Lyu",
+			"url": "https://github.com/rebornix"
+		}
+	],
+	"engines": {
+		"vscode": "^1.0.0"
+	},
+	"categories": [
+		"Languages"
+	],
+	"private": false,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rebornix/vscode-scheme.git"
+	},
+	"bugs": {
+		"url": "https://github.com/rebornix/vscode-scheme/issues"
+	},
+	"icon": "images/scheme.jpg",
+	"contributes": {
+		"languages": [
+			{
+				"id": "scheme",
+				"aliases": [
+					"scheme",
+					"scheme"
+				],
+				"extensions": [
+					".scm",
+					".sch",
+					".rkt"
+				],
+				"configuration": "./scheme.configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "scheme",
+				"scopeName": "source.scheme",
+				"path": "./syntaxes/scheme.tmLanguage"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "03433252-49e2-41dc-a8b7-497956c18dd6",
+		"publisherId": "d30b9513-547b-4112-9c9c-0fcffa960258",
+		"publisherDisplayName": "Peng Lv"
+	}
+}

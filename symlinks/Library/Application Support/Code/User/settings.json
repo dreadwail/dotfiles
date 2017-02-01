@@ -1,0 +1,37 @@
+{
+    "vim.useSolidBlockCursor": true,
+    "editor.cursorBlinking": "solid",
+    "editor.fontSize": 16,
+    "editor.tabSize": 2,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/.grunt": true,
+        "**/dist": true
+    },
+    "editor.insertSpaces": true,
+    "editor.autoClosingBrackets": false,
+    "editor.cursorStyle": "block",
+    "editor.folding": false,
+    "editor.trimAutoWhitespace": true,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "window.showFullPath": true,
+    "explorer.openEditors.visible": 0,
+    "vim.useCtrlKeys": true,
+    "vim.useSystemClipboard": true,
+    "vim.showcmd": true,
+    "vim.ignorecase": false,
+    "vim.incsearch": false,
+    "vim.startInInsertMode": false,
+    "window.reopenFolders": "none",
+    "vsicons.dontShowNewVersionMessage": true,
+    "vsicons.projectDetection.autoReload": true,
+    "window.zoomLevel": 0,
+    "diffEditor.renderIndicators": false,
+    "files.associations": {
+        "*.css": "postcss"
+    }
+  }
