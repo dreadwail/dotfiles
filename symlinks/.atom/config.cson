@@ -1,4 +1,5 @@
 "*":
+  "advanced-open-file": {}
   "atom-beautify":
     general:
       analytics: false

@@ -32,3 +32,6 @@
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 '.platform-darwin':
   ':': 'find-and-replace:show'
+'.platform-darwin atom-workspace':
+  'cmd-n': 'advanced-open-file:toggle'
+  'cmd-o': 'advanced-open-file:toggle'
