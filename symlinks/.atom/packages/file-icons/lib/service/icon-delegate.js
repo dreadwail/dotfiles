@@ -99,9 +99,7 @@ class IconDelegate{
 		const {resource} = this;
 		
 		if(resource.type & EntityType.DIRECTORY)
-			return resource.isRepository
-				? ["icon-repo"]
-				: ["icon-file-directory"];
+			return ["icon-file-directory"];
 		
 		else if(resource.isBinary)
 			return ["icon-file-binary"];
@@ -130,12 +128,15 @@ class IconDelegate{
 	getReplacementClass(){
 		const {resource} = this;
 		
-		if(resource.isSymlink){
+		if(resource.isRepository && resource.isRoot)
+			return "icon-repo";
+		
+		else if(resource.isSymlink){
 			const type = resource.isDirectory ? "directory" : "file";
 			return "icon-file-symlink-" + type;
 		}
 		
-		else if(resource.submodule)
+		else if(resource.isSubmodule)
 			return "icon-file-submodule";
 		
 		else return "";

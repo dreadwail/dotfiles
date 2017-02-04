@@ -4,6 +4,76 @@ All notable changes to the project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 
+[2.0.14] - [2017-02-03]
+-----------------------
+### Added
+- **33 new icons:** Ansible, Aurelia, bitHound, Brunch, Buck, Bundler, CakePHP (updated logo), Chef, COBOL, CodeKit, Delphi, Doclets, DoneJS, Drone, GitLab, HaxeDevelop, Jasmine, Jest, KitchenCI, Lerna, Lime, Microsoft InfoPath, Nuclide, Octave, PHPUnit, Redux, RSpec, Sequelize, Shipit, Shippable, Swagger, Template Toolkit, Twig
+- **Support:** Blade (`.blade`), Erlang (`Emakefile`), GraphViz (`.plantuml`, `.iuml`, `.puml`, `.pu`), Jekyll (`_config.yml`, `.nojekyll`), MkDocs (`mkdocs.yml`), Paket (Various `paket.*` configs, `.paket` folders), Process IDs (`.pid`), Puppet (`.epp`), Tcl (`.exp`), Terminal (`.profile`), Visual Studio (`.vscodeignore`, `.vsix`, `.vssettings.json`, `.vscode` folders), Yarn (`.yarnrc`, `.yarn-metadata.json`, `.yarn-integrity`, `.yarnclean`), WeChat (`.wxml`, `.wxss`)
+
+### Fixed
+- __Icon config:__ Incorrect priority levels assigned to certain icons
+- __Icon config:__ Icon names not fuzzed when generating alias pattern
+- Submodule icons not showing in tree-view
+- Missing repo icons in projects that were opened through a symlink
+- Certain path separators not normalised on Windows; likely solves [`#528`][]
+
+[`#528`]: https://github.com/file-icons/atom/issues/528
+
+
+[2.0.13] - 2017-01-28
+---------------------
+### Added
+- **Support:** Gear (`.htmlhintrc`), NodeJS (`.node`)
+
+### Fixed
+- [[`#528`][]] Deleted files not cleared from memory on Windows
+- [[`#530`][]] Error thrown after deactivating package
+- Errors thrown when deactivating/reactivating package
+
+[`#528`]: https://github.com/file-icons/atom/issues/528
+[`#530`]: https://github.com/file-icons/atom/issues/530
+
+
+[2.0.12] - 2017-01-24
+---------------------
+### Fixed
+- Regression introduced in 2.0.11 for Nuclide users
+
+
+[2.0.11] - 2017-01-24
+---------------------
+### Fixed
+- [[`#525`][]] Breakage at startup on Windows
+
+[`#525`]: https://github.com/file-icons/atom/issues/525
+
+
+[2.0.10] - 2017-01-20
+---------------------
+### Fixed
+- [[`#502`][]] Sporadic breakage with fixing tab-classes
+- [[`#518`][]] Repo icons missing on Windows
+- [[`#519`][]] Error thrown at startup or when installed
+- Icon cache resetting between sessions on Windows
+
+[`#502`]: https://github.com/file-icons/atom/issues/502
+[`#518`]: https://github.com/file-icons/atom/issues/518
+[`#519`]: https://github.com/file-icons/atom/issues/519
+
+
+[2.0.9] - 2017-01-13
+--------------------
+### Fixed
+- [[`#497`][]] Tree-view not showing when adding new project in empty window
+- [[`#509`][]] Breakage with hashbangs with `#!/usr/bin/env` but no interpreter
+- [[`#514`][]] Breakage if `document.styleSheets` is null
+- Submodule icons not showing
+
+[`#497`]: https://github.com/file-icons/atom/issues/497
+[`#509`]: https://github.com/file-icons/atom/issues/509
+[`#514`]: https://github.com/file-icons/atom/issues/514
+
+
 [2.0.8] - 2017-01-11
 --------------------
 ### Added
@@ -1020,7 +1090,13 @@ Contributors should take heed of the new [submission process](https://github.com
 Initial release.
 
 
-[Unpublished]: https://github.com/file-icons/atom/compare/v2.0.8...HEAD
+[Unpublished]: https://github.com/file-icons/atom/compare/v2.0.14...HEAD
+[2.0.14]: https://github.com/file-icons/atom/releases/tag/v2.0.14
+[2.0.13]: https://github.com/file-icons/atom/releases/tag/v2.0.13
+[2.0.12]: https://github.com/file-icons/atom/releases/tag/v2.0.12
+[2.0.11]: https://github.com/file-icons/atom/releases/tag/v2.0.11
+[2.0.10]: https://github.com/file-icons/atom/releases/tag/v2.0.10
+[2.0.9]:  https://github.com/file-icons/atom/releases/tag/v2.0.9
 [2.0.8]:  https://github.com/file-icons/atom/releases/tag/v2.0.8
 [2.0.7]:  https://github.com/file-icons/atom/releases/tag/v2.0.7
 [2.0.6]:  https://github.com/file-icons/atom/releases/tag/v2.0.6

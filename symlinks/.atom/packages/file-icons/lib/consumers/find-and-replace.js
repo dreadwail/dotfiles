@@ -1,7 +1,7 @@
 "use strict";
 
-const {isRegExp} = require("../utils/general.js");
-const Consumer   = require("./consumer.js");
+const {isRegExp, normalisePath, wait} = require("../utils/general.js");
+const Consumer = require("./consumer.js");
 
 
 class FindAndReplace extends Consumer {
@@ -16,7 +16,8 @@ class FindAndReplace extends Consumer {
 		const trackEntry = this.trackEntry.bind(this);
 		this.punch(ResultView.prototype, "renderResult", function(oldFn){
 			const result = oldFn();
-			trackEntry(this.filePath, this[0].querySelector(".icon"));
+			const path = normalisePath(this.filePath);
+			trackEntry(path, this[0].querySelector(".icon"));
 			return result;
 		});
 	}

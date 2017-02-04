@@ -353,7 +353,7 @@
         {
           "comment": "Assume flow typecasts start with a newline( or a :( or a =( or a ;(",
           "comment": "try to avoid ternary operators which have a '? some chars :'",
-          "begin": "(^|:|;|=|(?<=:|;|=))\\s*+(\\((?=((\"|').*?(?<=[^\\\\])\\k<-1>|[^?:])*(:|\\?\\s*+:)))",
+          "begin": "(^|:|;|=|(?<=:|;|=))\\s*+(\\((?=(?:((['\"])([^\\\"']*)(\\k<-3>))*+|[^?:\"'])*(\\s*:|\\?\\s*+:)))",
           "end": "\\s*(\\))",
           "beginCaptures": {
             "2": { "name": "meta.brace.round.js" }
@@ -675,12 +675,12 @@
             "2": { "name": "entity.name.tag.styledcss.js" },
             "3": { "name": "keyword.operator.accessor.js" },
             "4": { "name": "entity.name.tag.styledcss.js" },
-            "5": { "name": "punctuation.definition.quasi.begin.js" },
-            "6": { "name": "string.quoted.template.styled.start.js" }
+            "5": { "name": "string.quoted.template.styled.start.js" },
+            "6": { "name": "punctuation.definition.quasi.begin.js" }
           },
           "endCaptures": {
-            "1": { "name": "punctuation.definition.quasi.end.js" },
-            "2": { "name": "string.quoted.template.styled.end.js" }
+            "1": { "name": "string.quoted.template.styled.end.js" },
+            "2": { "name": "punctuation.definition.quasi.end.js" }
           },
           "patterns": [
             { "include": "source.css.styled" }
@@ -701,12 +701,12 @@
               "begin": "\\s*((`))",
               "end": "\\s*(?<!\\\\)((`))",
               "beginCaptures": {
-                "1": { "name": "punctuation.definition.quasi.begin.js" },
-                "2": { "name": "string.quoted.template.styled.start.js" }
+                "1": { "name": "string.quoted.template.styled.start.js" },
+                "2": { "name": "punctuation.definition.quasi.begin.js" }
               },
               "endCaptures": {
-                "1": { "name": "punctuation.definition.quasi.end.js" },
-                "2": { "name": "string.quoted.template.styled.end.js" }
+                "1": { "name": "string.quoted.template.styled.end.js" },
+                "2": { "name": "punctuation.definition.quasi.end.js" }
               },
               "patterns": [
                 { "include": "source.css.styled" }
@@ -716,7 +716,7 @@
         },
         {
           "comment": "GraphQL ( Relay.QL ) supprt. Use two forms of scopes! fixes some themes",
-          "begin": "\\s*+(?:((Relay)(.)(QL))|(gql)|(/\\* GraphQL \\*/))\\s*((`))",
+          "begin": "\\s*+(?:((Relay)(.)(QL))|(gql|graphql)|(/\\* GraphQL \\*/))\\s*((`))",
           "end": "\\s*(?<!\\\\)((`))",
           "beginCaptures": {
             "2": { "name": "variable.other.class.js" },
@@ -728,8 +728,8 @@
             "8": { "name": "punctuation.definition.quasi.begin.js" }
           },
           "endCaptures": {
-            "1": { "name": "punctuation.definition.quasi.end.js" },
-            "2": { "name": "string.quoted.template.graphql.js" }
+            "1": { "name": "string.quoted.template.graphql.js" },
+            "2": { "name": "punctuation.definition.quasi.end.js" }
           },
           "patterns": [
             { "include": "#graphql" }
@@ -743,12 +743,12 @@
           "end": "\\s*(?<!\\\\)((`))",
           "beginCaptures": {
             "1": { "name": "entity.name.tag.js" },
-            "2": { "name": "punctuation.definition.quasi.begin.js" },
-            "3": { "name": "string.quoted.template.js" }
+            "2": { "name": "string.quoted.template.js" },
+            "3": { "name": "punctuation.definition.quasi.begin.js" }
           },
           "endCaptures": {
-            "1": { "name": "punctuation.definition.quasi.end.js" },
-            "2": { "name": "string.quoted.template.js" }
+            "1": { "name": "string.quoted.template.js" },
+            "2": { "name": "punctuation.definition.quasi.end.js" }
           },
           "patterns": [
             { "include": "#literal-quasi-embedded"},
@@ -1668,39 +1668,50 @@
       ]
     },
     "literal-module-import": {
-      "begin": "(?<!\\.)\\s*+\\b(import)(?!\\s*:)\\b",
-      "end": "\\s*(?:(?:(\\bfrom\\b)?+\\s++(('|\")([^\"']*)(\\k<-3>)))|(?=;|^\\s*\\b(if|switch|try|var|let|const|static|function|return|class|do|for|while|debugger|export|import|yield|type|declare|interface)\\b|\\)|}))",
-      "beginCaptures": {
-        "1": { "name": "keyword.control.module.js" }
-      },
-      "endCaptures": {
-        "1": { "name": "keyword.control.module.js" },
-        "3": { "name": "punctuation.definition.string.begin.js" },
-        "4": { "name": "string.quoted.module.js" },
-        "5": { "name": "punctuation.definition.string.end.js" }
-      },
       "patterns": [
         {
-          "match": "\\s*\\b(default)\\b",
-          "captures": {
+          "name": "meta.function-call.with-arguments.js",
+          "begin": "(?<!\\.)\\s*+(import)(?=\\()",
+          "end": "(?=.)",
+          "applyEndPatternLast": 1,
+          "beginCaptures": {
             "1": { "name": "keyword.control.module.js" }
-          }
+          },
+          "patterns": [
+            { "include": "#round-brackets" }
+          ]
         },
         {
-          "match": "\\s*\\b(typeof|type)\\b\\s++(?={|(?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+}))(?!\\b(instanceof|in|as)\\b|,)",
-          "captures": {
-            "1": { "name": "keyword.other.typedef.flowtype" }
-          }
-        },
-        { "include": "#literal-module-as" },
-        {
-          "name": "keyword.operator.module.all.js",
-          "match": "\\s*\\*"
-        },
-        { "include": "#literal-module-brackets" },
-        { "include": "#literal-variable" },
-        { "include": "#comments" },
-        { "include": "#literal-comma"}
+          "begin": "(?<!\\.)\\s*+\\b(import)(?!\\s*:)\\b",
+          "end": "\\s*(?:(?:(\\bfrom\\b)?+\\s++(('|\")([^\"']*)(\\k<-3>)))|(?=;|^\\s*\\b(if|switch|try|var|let|const|static|function|return|class|do|for|while|debugger|export|import|yield|type|declare|interface)\\b|\\)|}))",
+          "beginCaptures": {
+            "1": { "name": "keyword.control.module.js" }
+          },
+          "endCaptures": {
+            "1": { "name": "keyword.control.module.js" },
+            "3": { "name": "punctuation.definition.string.begin.js" },
+            "4": { "name": "string.quoted.module.js" },
+            "5": { "name": "punctuation.definition.string.end.js" }
+          },
+          "patterns": [
+            {
+              "match": "\\s*\\b(default)\\b",
+              "captures": {
+                "1": { "name": "keyword.control.module.js" }
+              }
+            },
+            { "include": "#literal-module-typeof" },
+            { "include": "#literal-module-as" },
+            {
+              "name": "keyword.operator.module.all.js",
+              "match": "\\s*\\*"
+            },
+            { "include": "#literal-module-brackets" },
+            { "include": "#literal-variable" },
+            { "include": "#comments" },
+            { "include": "#literal-comma"}
+          ]
+        }
       ]
     },
     "literal-module-export": {
@@ -1775,6 +1786,7 @@
               "name": "keyword.operator.module.all.js",
               "match": "\\*"
             },
+            { "include": "#literal-module-typeof" },
             { "include": "#literal-module-as" },
             { "include": "#literal-module-brackets" },
             { "include": "#literal-variable" },
@@ -1784,6 +1796,12 @@
           ]
         }
       ]
+    },
+    "literal-module-typeof": {
+        "match": "\\s*\\b(typeof|type)\\b\\s++(?={|(?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+}))(?!\\b(instanceof|in|as)\\b|,)",
+        "captures": {
+          "1": { "name": "keyword.other.typedef.flowtype" }
+        }
     },
     "literal-variable": {
       "patterns": [
@@ -1861,18 +1879,15 @@
       "patterns": [
         { "comment": "http://tc39.github.io/proposal-decorators/",
           "comment": "Look for a @identifier start If unicode start uppercase e.g. @A class it as a class ",
-          "name": "meta.tag.decorator",
           "begin": "(?<!@)\\s*+(?:(@)(?:((?:[\\p{Lu}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)|((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)))",
-          "end": "(?<=\\))|\\s*(?=.)",
+          "end": "(?=.)",
           "applyEndPatternLast": 1,
           "beginCaptures": {
-            "1": { "name": "keyword.operator.decoration.js"},
-            "2": { "name": "entity.name.class.js" },
-            "3": { "name": "variable.other.readwrite.js" }
+            "1": { "name": "keyword.operator.decorator.js"},
+            "2": { "name": "entity.name.class.decorator.js" },
+            "3": { "name": "variable.other.readwrite.decorator.js" }
           },
           "patterns": [
-            { "include": "#round-brackets" },
-            { "include": "#comments" },
             {
               "commnent": "decorator .property or .method which may be on a different line",
               "begin": "\\s*(\\.)",
@@ -1881,15 +1896,36 @@
                 "1": { "name": "keyword.operator.accessor.js"}
               },
               "endCaptures": {
-                "1": { "name": "entity.name.class.js" },
-                "2": { "name": "variable.other.property.js" }
+                "1": { "name": "entity.name.class.decorator.js" },
+                "2": { "name": "variable.other.property.decorator.js" }
               },
               "patterns": [
                 { "include": "#comments" }
               ]
             },
-            { "include": "#literal-method" },
-            { "include": "#literal-class" }
+            {
+              "comment": "arguments for decorators",
+              "include": "#round-brackets" },
+            {
+              "comment": "method that always follow decorators such as play<T,T>(arg1, arg2): Type<T> { }",
+              "name": "meta.function.method.js",
+              "begin": "(?:(?<=^|;)|(?=\\s))\\s*+(\\bstatic\\b)?\\s*+(\\basync\\b)?\\s*+(\\*?)\\s*+(?<!\\.)((?:[$_\\p{L}\\p{Nl}]|\\\\u\\h{4}|\\\\u{\\h+})(?:[$_\\p{L}\\p{Mn}\\p{Mc}\\p{Nd}\\p{Nl}\\p{Pc}\\x{200C}\\x{200D}]|\\\\u\\h{4}|\\\\u{\\h+})*+)\\s*+(?=(<(?:(?>[^<>]+)|\\g<-1>)*>)?(\\())",
+              "end": "(?<=})|(?=;|}|,)",
+              "beginCaptures": {
+                "1": { "name": "storage.modifier.js" },
+                "2": { "name": "storage.type.js" },
+                "3": { "name": "keyword.generator.asterisk.js" },
+                "4": { "name": "entity.name.function.method.js" }
+              },
+              "patterns": [
+                { "include": "#flowtype" },
+                { "include": "#curly-brackets" },
+                { "include": "#class-body" },
+                { "include": "$self" }
+              ]
+            },
+            { "include": "#comments" },
+            { "match": "\\s*\n" }
           ]
         }
       ]
