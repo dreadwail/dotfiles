@@ -9,15 +9,6 @@
 # atom.workspace.observeTextEditors (editor) ->
 #   editor.onDidSave ->
 #     console.log "Saved! #{editor.getPath()}"
-atom.commands.add 'atom-workspace', 'vim-mode-plus:toggle-enabled', ->
-  disabledPackages = atom.config.get('core.disabledPackages')
-  disabledPackageIndex = disabledPackages.indexOf('vim-mode-plus')
-  if disabledPackageIndex is -1
-    disabledPackages.push('vim-mode-plus')
-  else
-    disabledPackages.splice(disabledPackageIndex, 1)
-  atom.config.set('core.disabledPackages', disabledPackages)
-
 
 consumeService = (packageName, providerName, fn) ->
   disposable = atom.packages.onDidActivatePackage (pack) ->
