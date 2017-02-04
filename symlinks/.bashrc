@@ -19,8 +19,8 @@ alias diff="colordiff"
 
 # MacVim
 export PATH=$PATH:$HOME/.macvim
-alias vi="mvim -v"
-alias vim="mvim -v"
+#alias vi="mvim -v"
+#alias vim="mvim -v"
 export EDITOR="mvim"
 
 # Java
@@ -35,3 +35,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # Yarn
 export PATH="$PATH:`yarn global bin`"
+
+# Learn you an Atom
+alias code="atom"
+alias vi="atom"
+alias vim="atom"
