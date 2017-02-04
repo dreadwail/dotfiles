@@ -21,6 +21,7 @@ SYMLINK_MANIFEST = [
   ".atom/config.cson",
   ".atom/init.coffee",
   ".atom/keymap.cson",
+  ".atom/packages",
   ".rbenv/default-gems",
   ".rbenv/plugins",
   ".vim/after",

@@ -1,33 +1,42 @@
 "*":
-  "bracket-matcher":
-    autocompleteBrackets: false
-    autocompleteSmartQuotes: false
-    wrapSelectionsInBrackets: false
+  "atom-beautify":
+    general:
+      analytics: false
+  "atom-slime":
+    lispName: "scheme"
+    slimePath: "/Users/blakey/github/slime"
   core:
+    allowPendingPaneItems: false
     audioBeep: false
-    disabledPackages: [
-      "snippets"
-    ]
-    openEmptyEditorOnStart: false
-    projectHome: "/Users/byte/Dropbox/Code"
+    telemetryConsent: "no"
     themes: [
       "one-dark-ui"
       "base16-tomorrow-dark-theme"
     ]
   editor:
+    atomicSoftTabs: false
+    fontFamily: "Menlo, Monaco, 'Courier New', monospace"
     fontSize: 16
-    preferredLineLength: 100
-    tabType: "soft"
+    preferredLineLength: 120
+    softWrap: true
   "exception-reporting":
-    userId: "7350acc4-f3f1-e715-4c22-422f5f24cbad"
+    userId: "ec297382-e5c3-96c3-d2d0-4963c1f4c430"
+  "find-and-replace":
+    caseSensitive: true
+    inCurrentSelection: true
+    openProjectFindResultsInRightPane: true
+    useRegex: true
+  "linter-puppet-lint":
+    oldVersion: false
+  swackets:
+    colorParens: true
+    colorSquareBrackets: true
+  tabs: {}
+  "tree-view": {}
   "vim-mode-plus":
-    highlightSearch: true
+    flashOnOperate: false
+    hideStatusBarOnMaximizePane: false
+    hideTabBarOnMaximizePane: false
     useClipboardAsDefaultRegister: true
   welcome:
     showOnStartup: false
-".erb.html.text":
-  editor:
-    preferredLineLength: 100
-".ruby.source":
-  editor:
-    preferredLineLength: 100
