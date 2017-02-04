@@ -1,8 +1,30 @@
+### 2.53.0
+  - Changed the status bar indicator to use a name of `Babel` rather than `Babel ES6 JavaScript`. Now ES2016 and ES2017 are being released it seems more appropriate and succinct. `Babel ES6 JavaScript` is still the internal grammar name as shown on the list of grammars to ensure compatibility with packages that use this keyword. e.g. atom-beautify.
+
+### 2.52.2
+  - Change styled-components auto-complete property values to position cursor after closing semi-colon.
+  - Allow pseudo selectors to appear at top level of styled-components string without implicit parent. css `::pseudo-value`
+
+### 2.52.0
+  - Add support for auto-completing styled-components CSS.
+
+### 2.51.0
+  - Add support for the new flow shorthand for importing types in the same declaration that imports values: import {someValue, type someType, typeof someOtherValue} from 'foo'
+  - Remove meta scope and tidy decorator support in grammar - Issue #320
+
+### 2.50.1
+  - Change regex for detecting flow type casts. Fixes Issue #317
+
+### 2.50.0
+  - Add support for TC39 dynamic import 'function'.
+  - Add support for Relay to use graphql as a tagged template name.
+  - Stop any autoIndentJSX from working inside embedded template literals.
+
 ### 2.49.4
   - Add additional closing space after auto-commenting styled-components. Issue #303
   - Fix incorrect scope names for methods/functions called witrh more than one object arg. Issue #299
   - Add additional scope name for start/end braces of object literals. Issue #301
-  
+
 ### 2.49.3
   - Fix #296 Closing backtick terminates styled-component css property.
   - Fix #297 for...of and for...in loops with let|const|var property grammar parsing.

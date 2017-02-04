@@ -244,26 +244,50 @@ class MoveRightBufferColumn extends Motion
 class MoveUp extends Motion
   @extend()
   wise: 'linewise'
+  wrap: false
 
   getBufferRow: (row) ->
-    row = limitNumber(row - 1, min: 0)
+    row = @getNextRow(row)
     if @editor.isFoldedAtBufferRow(row)
       getLargestFoldRangeContainsBufferRow(@editor, row).start.row
     else
       row
 
+  getNextRow: (row) ->
+    min = 0
+    if @wrap and row is min
+      @getVimLastBufferRow()
+    else
+      limitNumber(row - 1, {min})
+
   moveCursor: (cursor) ->
     @moveCursorCountTimes cursor, =>
       setBufferRow(cursor, @getBufferRow(cursor.getBufferRow()))
 
+class MoveUpWrap extends MoveUp
+  @extend()
+  wrap: true
+
 class MoveDown extends MoveUp
   @extend()
   wise: 'linewise'
+  wrap: false
 
   getBufferRow: (row) ->
     if @editor.isFoldedAtBufferRow(row)
       row = getLargestFoldRangeContainsBufferRow(@editor, row).end.row
-    limitNumber(row + 1, max: @getVimLastBufferRow())
+    @getNextRow(row)
+
+  getNextRow: (row) ->
+    max = @getVimLastBufferRow()
+    if @wrap and row >= max
+      0
+    else
+      limitNumber(row + 1, {max})
+
+class MoveDownWrap extends MoveDown
+  @extend()
+  wrap: true
 
 class MoveUpScreen extends Motion
   @extend()
@@ -1069,20 +1093,10 @@ class MoveToNextNumber extends MoveToPreviousNumber
 
 class MoveToNextOccurrence extends Motion
   @extend()
+  # Ensure this command is available when has-occurrence
+  @commandScope: 'atom-text-editor.vim-mode-plus.has-occurrence'
   jump: true
   direction: 'next'
-
-  initialize: ->
-    if @vimState.occurrenceManager.hasMarkers()
-      super
-    else
-      if settings.get('fallbackTabAndShiftTabInNormalMode')
-        switch getKeystrokeForEvent(@vimState._event)
-          when 'tab'
-            atom.commands.dispatch(@editorElement, 'editor:indent')
-          when 'shift-tab'
-            atom.commands.dispatch(@editorElement, 'editor:outdent-selected-rows')
-      @abort()
 
   getRanges: ->
     @vimState.occurrenceManager.getMarkers().map (marker) ->

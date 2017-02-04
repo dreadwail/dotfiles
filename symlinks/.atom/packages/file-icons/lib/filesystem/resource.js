@@ -1,10 +1,10 @@
 "use strict";
 
-const {basename, resolve, sep} = require("path");
+const {basename} = require("path");
 const {CompositeDisposable, Disposable, Emitter} = require("atom");
 const {lstat, realpath, statify} = require("../utils/fs.js");
+const {normalisePath} = require("../utils/general.js");
 const MappedDisposable = require("../utils/mapped-disposable.js");
-const SubmoduleInfo = require("./submodule-info.js");
 const IconDelegate = require("../service/icon-delegate.js");
 const EntityType = require("./entity-type.js");
 const System = require("./system.js");
@@ -26,7 +26,7 @@ class Resource{
 	 * @constructor
 	 */
 	constructor(path, stats, noIcon = false){
-		path = resolve(path);
+		path = normalisePath(path);
 		
 		this.disposables = new MappedDisposable();
 		this.emitter = new Emitter();
@@ -208,12 +208,12 @@ class Resource{
 		const projects = atom.project.getPaths();
 		const {length} = projects;
 		for(let i = 0; i < length; ++i){
-			const projectPath = projects[i];
+			const projectPath = normalisePath(projects[i]);
 			
 			if(!projectPath)
 				continue;
 			
-			if(projectPath === resourcePath || 0 === resourcePath.indexOf(projectPath + sep))
+			if(projectPath === resourcePath || 0 === resourcePath.indexOf(projectPath + "/"))
 				return atom.project.getRepositories()[i] || null;
 		}
 		
@@ -222,19 +222,17 @@ class Resource{
 	
 	
 	/**
-	 * Retrieve info for the submodule this resource belongs to.
+	 * Retrieve the submodule to which this resource belongs.
 	 *
-	 * If the resource doesn't belong to a submodule, the method returns null.
-	 *
-	 * @return {SubmoduleInfo|null}
+	 * @return {Repository}
 	 */
 	getSubmodule(){
-		return this.repo
-			? SubmoduleInfo.forPath(this.path) || null
-			: null;
+		if(!this.repo) return null;
+		const {repo} = this.repo;
+		return repo.submoduleForPath(this.path) || null;
 	}
-
-
+	
+	
 	/**
 	 * Modify the resource's location.
 	 *
@@ -246,6 +244,7 @@ class Resource{
 		if(!to) throw new TypeError("Cannot assign empty path");
 		const from = this.path;
 		
+		to = normalisePath(to);
 		if(from !== to){
 			this.path = to;
 			this.name = basename(to);
@@ -266,6 +265,7 @@ class Resource{
 		this.pendingRealPath = false;
 		const from = this.realPath;
 		
+		to = normalisePath(to);
 		if(to !== from && to !== this.realPath){
 			this.realPath = to;
 			setImmediate(() => this.emit("did-change-realpath", {from, to}));

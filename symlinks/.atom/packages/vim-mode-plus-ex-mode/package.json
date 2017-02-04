@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/pz/x781z5nn43910z7c83s6s2gw0000gn/T/d-117012-82612-1y2b58w/package.tgz",
+        "raw": "/private/var/folders/pz/x781z5nn43910z7c83s6s2gw0000gn/T/d-11713-97806-rg1sfz/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/pz/x781z5nn43910z7c83s6s2gw0000gn/T/d-117012-82612-1y2b58w/package.tgz",
-        "spec": "/private/var/folders/pz/x781z5nn43910z7c83s6s2gw0000gn/T/d-117012-82612-1y2b58w/package.tgz",
+        "rawSpec": "/private/var/folders/pz/x781z5nn43910z7c83s6s2gw0000gn/T/d-11713-97806-rg1sfz/package.tgz",
+        "spec": "/private/var/folders/pz/x781z5nn43910z7c83s6s2gw0000gn/T/d-11713-97806-rg1sfz/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/pz/x781z5nn43910z7c83s6s2gw0000gn/T/apm-install-dir-117012-82612-1h6p153"
+      "/private/var/folders/pz/x781z5nn43910z7c83s6s2gw0000gn/T/apm-install-dir-11713-97806-1fkk2mi"
     ]
   ],
-  "_from": "../d-117012-82612-1y2b58w/package.tgz",
-  "_id": "vim-mode-plus-ex-mode@0.7.1",
+  "_from": "../d-11713-97806-rg1sfz/package.tgz",
+  "_id": "vim-mode-plus-ex-mode@0.8.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/vim-mode-plus-ex-mode",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/pz/x781z5nn43910z7c83s6s2gw0000gn/T/d-117012-82612-1y2b58w/package.tgz",
+    "raw": "/private/var/folders/pz/x781z5nn43910z7c83s6s2gw0000gn/T/d-11713-97806-rg1sfz/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/pz/x781z5nn43910z7c83s6s2gw0000gn/T/d-117012-82612-1y2b58w/package.tgz",
-    "spec": "/private/var/folders/pz/x781z5nn43910z7c83s6s2gw0000gn/T/d-117012-82612-1y2b58w/package.tgz",
+    "rawSpec": "/private/var/folders/pz/x781z5nn43910z7c83s6s2gw0000gn/T/d-11713-97806-rg1sfz/package.tgz",
+    "spec": "/private/var/folders/pz/x781z5nn43910z7c83s6s2gw0000gn/T/d-11713-97806-rg1sfz/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117012-82612-1y2b58w/package.tgz",
-  "_shasum": "01700efcadae291e028ef0b0d7e6bac9cba96b79",
+  "_resolved": "file:../d-11713-97806-rg1sfz/package.tgz",
+  "_shasum": "7e19a79c8d337a7ca4655f3e5b6dc3ee579e7267",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/pz/x781z5nn43910z7c83s6s2gw0000gn/T/d-117012-82612-1y2b58w/package.tgz",
-  "_where": "/private/var/folders/pz/x781z5nn43910z7c83s6s2gw0000gn/T/apm-install-dir-117012-82612-1h6p153",
+  "_spec": "/private/var/folders/pz/x781z5nn43910z7c83s6s2gw0000gn/T/d-11713-97806-rg1sfz/package.tgz",
+  "_where": "/private/var/folders/pz/x781z5nn43910z7c83s6s2gw0000gn/T/apm-install-dir-11713-97806-1fkk2mi",
   "activationCommands": {
     "atom-text-editor": [
       "vim-mode-plus-ex-mode:open",
@@ -67,11 +67,11 @@
   "main": "./lib/main",
   "name": "vim-mode-plus-ex-mode",
   "optionalDependencies": {},
-  "readme": "# vim-mode-plus-ex-mode\n\nExperimental ex-mode support for vim-mode-plus\n\n# NOTE for heavy ex-mode user\n\nMy thought about providing ex or command(`:`) in Atom is [here #52](https://github.com/t9md/atom-vim-mode-plus/issues/52).  \nI still not much motivated for this package.   \nSo fixing, enhancing this vim-mode-plus-ex-mode package is tend to be delayed.  \nSo please understand this package as reference, example, prototype implementation.  \nDon't ask me to improve this package into **true** ex-mode emulation.  \n\n## keymap\n\nThere is no default keymap.\n\n```coffeescript\n'atom-text-editor.vim-mode-plus.normal-mode':\n  ':': 'vim-mode-plus-ex-mode:open'\n  '!': 'vim-mode-plus-ex-mode:toggle-setting'\n```\n\n# How to use\n\n- `11`: Move to line 11.\n- `+11`, `-11`: Move to relative line.\n- `50%`: Move to 50% of buffer..\n- `15:10`: Move to column 10 of line 15.\n- `!`: Toggle boolean config parameter.\n- `w`, `wq`, `split`, `vsplit` etc.\n",
+  "readme": "# vim-mode-plus-ex-mode\n\nExperimental ex-mode support for vim-mode-plus\n\n## How to use?\n\nDefault keymaps are provided from v0.8.0.\nIn `normal-mode`, following keymaps are available.\n\n- `:`: `vim-mode-plus-ex-mode:open`: open ex-mode then can use following operations\n  - `11`: Move to line 11.\n  - `+11`, `-11`: Move to relative line.\n  - `50%`: Move to 50% of buffer..\n  - `15:10`: Move to line 15, column 10\n  - `!`: Toggle boolean config parameter.\n  - `w`, `wq`, `split`, `vsplit` etc.\n\n- `!`: `vim-mode-plus-ex-mode:toggle-setting`: toggle boolean setting-value.\n  - Choose setting parameter to toggle boolean value.\n  - Shorthand of `:` then input `!`\n\n## NOTE for heavy ex-mode user\n\nI'm not motivated for this package.   \nMy thought for providing ex-mode(`:` command) in Atom is [here #52](https://github.com/t9md/atom-vim-mode-plus/issues/52).  \nPlease understand this package as reference, example, prototype implementation.  \nDon't ask me to improve this package into **true** ex-mode emulation.  \n\nInstead, you can learn\n\n- [Atom's way](https://flight-manual.atom.io/)\n- [vim-mode-plus's way](https://github.com/t9md/atom-vim-mode-plus/wiki)\n\nFor example, there are quicker and effective ways than doing `s/abc/def/g`.  \nBy using Atom's multiple-cursors, and also vim-mod-plus's `occurrence` feature(unique enhancement).  \n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/t9md/atom-vim-mode-plus-ex-mode.git"
   },
-  "version": "0.7.1"
+  "version": "0.8.1"
 }
