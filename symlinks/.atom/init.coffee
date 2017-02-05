@@ -24,3 +24,7 @@ consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
     vimState.modeManager.onDidDeactivateMode ({mode}) ->
       if mode is 'insert'
         vimState.editor.clearSelections()
+
+process.nextTick ->
+  atom.workspace.getPaneItems().forEach ->
+    atom.workspace.destroyActivePaneItem()
