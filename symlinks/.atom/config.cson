@@ -4,6 +4,8 @@
     general:
       analytics: false
   "atom-slime":
+    advancedSettings:
+      showSwankDebug: true
     lispName: "scheme"
     slimePath: "/Users/blakey/github/slime"
   core:
@@ -29,6 +31,8 @@
     useRegex: true
   "linter-puppet-lint":
     oldVersion: false
+  "lisp-paredit":
+    strict: false
   swackets:
     colorParens: true
     colorSquareBrackets: true
