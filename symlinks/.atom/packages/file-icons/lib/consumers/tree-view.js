@@ -33,10 +33,11 @@ class TreeView extends Consumer {
 	
 	activate(){
 		this.show(true);
-		this.element       = this.packageModule.treeView;
-		this.entryElements = this.element[0].getElementsByClassName("entry");
+		const {treeView}   = this.packageModule;
+		this.element       = treeView;
+		this.entryElements = (treeView[0] || treeView.element).getElementsByClassName("entry");
 		
-		// TODO: Remove check when atom/tree-view#966 is merged/shipped
+		// TODO: Remove check when/if atom/tree-view#966 is merged/shipped
 		if("function" === typeof this.element.onEntryMoved){
 			const onMove = this.element.onEntryMoved(paths => {
 				FileSystem.fixPath(paths.oldPath, paths.newPath);
@@ -51,6 +52,15 @@ class TreeView extends Consumer {
 			atom.config.onDidChange("tree-view.sortFoldersBeforeFiles", () => this.rebuild())
 		);
 		this.rebuild();
+		
+		// HACK (file-icons/atom#550): Needed to force refresh when switching projects in Project Plus.
+		// See: https://github.com/mehcode/atom-project-util/blob/f58bec9e582c43a74fc2ed1/index.js#L155
+		if(atom.packages.loadedPackages["project-plus"])
+			this.punch(treeView, "updateRoots", oldFn => {
+				const result = oldFn();
+				this.rebuild();
+				return result;
+			});
 	}
 	
 	

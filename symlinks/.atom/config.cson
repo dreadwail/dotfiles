@@ -8,28 +8,36 @@
       showSwankDebug: true
     lispName: "scheme"
     slimePath: "/Users/blakey/github/slime"
+  "autocomplete-plus":
+    autoActivationDelay: 300
   core:
     allowPendingPaneItems: false
     audioBeep: false
+    disabledPackages: [
+      "atom-slime"
+    ]
     restorePreviousWindowsOnStart: false
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
       "atom-dark-syntax"
     ]
+  "custom-title":
+    template: "<%= filePath %>"
   editor:
     atomicSoftTabs: false
     fontFamily: "Menlo, Monaco, 'Courier New', monospace"
     fontSize: 16
     preferredLineLength: 120
-    softWrap: true
   "exception-reporting":
     userId: "ec297382-e5c3-96c3-d2d0-4963c1f4c430"
   "find-and-replace":
     caseSensitive: true
     inCurrentSelection: true
-    openProjectFindResultsInRightPane: true
+    projectSearchResultsPaneSplitDirection: "right"
     useRegex: true
+  "linter-eslint":
+    useGlobalEslint: true
   "linter-puppet-lint":
     oldVersion: false
   "lisp-paredit":

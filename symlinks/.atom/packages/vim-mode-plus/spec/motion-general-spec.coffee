@@ -968,12 +968,12 @@ describe "Motion general", ->
           cde1+- ab
           \t xyz-123
 
-           zip
+           zip\n
           """
 
     describe "as a motion", ->
       beforeEach ->
-        set cursor: [4, 1]
+        set cursor: [4, 0]
 
       it "moves the cursor to the beginning of the previous word", ->
         ensure 'B', cursor: [3, 1]
@@ -1917,6 +1917,7 @@ describe "Motion general", ->
       ensure 'Q', textC: "camelCase =>| (with special) ChaRActerRs\n\ndash-case\n\nsnake_case_word\n"
       ensure 'Q', textC: "camelCase| => (with special) ChaRActerRs\n\ndash-case\n\nsnake_case_word\n"
       ensure 'Q', textC: "camel|Case => (with special) ChaRActerRs\n\ndash-case\n\nsnake_case_word\n"
+      ensure 'Q', textC: "|camelCase => (with special) ChaRActerRs\n\ndash-case\n\nsnake_case_word\n"
     it "move-to-end-of-subword", ->
       set textC: "|camelCase => (with special) ChaRActerRs\n\ndash-case\n\nsnake_case_word\n"
       ensure 'ctrl-e', textC: "came|lCase => (with special) ChaRActerRs\n\ndash-case\n\nsnake_case_word\n"
