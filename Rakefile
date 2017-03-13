@@ -68,6 +68,7 @@ task :brew do
   `brew install memcached`
   `brew install node`
   `brew install postgresql`
+  `brew install readline`
   `brew install rbenv`
   `brew install ruby-build`
   `brew install sdl2`
