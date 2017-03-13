@@ -1,4 +1,4 @@
 --ignore-dir=coverage/
 --ignore-dir=log/
---ignore-dir=dist/
+--ignore-dir=.grunt/
 --ignore-file=match:tags
