@@ -13,7 +13,7 @@ const iconDisposables = new WeakMap();
 
 class IconNode{
 	
-	constructor(resource, element){
+	constructor(resource, element, tabIcon = false){
 		const delegate = resource.icon;
 		
 		this.disposables = new CompositeDisposable();
@@ -36,6 +36,13 @@ class IconNode{
 			})
 		);
 		
+		if(tabIcon){
+			this.disposables.add(
+				Options.onDidChange("tabPaneIcon", show => this.setVisible(show))
+			);
+			this.setVisible(Options.tabPaneIcon);
+		}
+		
 		if(resource.isFile)
 			this.disposables.add(
 				Options.onDidChange("defaultIconClass", _=> this.refresh())
@@ -52,6 +59,8 @@ class IconNode{
 		if(!this.destroyed){
 			this.disposables.dispose();
 			iconsByElement.delete(this.element);
+			this.appliedClasses = null;
+			this.classes   = null;
 			this.resource  = null;
 			this.element   = null;
 			this.destroyed = true;
@@ -147,11 +156,14 @@ class IconNode{
 	 *    Resource type to assume for unreadable or remote paths.
 	 *    Defaults to a regular file.
 	 *
+	 * @param {Boolean} [isTabIcon=false]
+	 *    Hide node when tab-pane icons are disabled.
+	 *
 	 * @returns {Disposable}
 	 *    A Disposable that destroys the {IconNode} when disposed of. Authors
 	 *    are encouraged to do so once the element is no longer needed.
 	 */
-	static forElement(element, path, typeHint = EntityType.FILE){
+	static forElement(element, path, typeHint = EntityType.FILE, isTabIcon = false){
 		if(!element) return null;
 		const icon = iconsByElement.get(element);
 		
@@ -163,7 +175,7 @@ class IconNode{
 				throw new TypeError("Cannot create icon-node for empty path");
 			
 			const rsrc = FileSystem.get(path, false, typeHint);
-			const node = new IconNode(rsrc, element);
+			const node = new IconNode(rsrc, element, isTabIcon);
 			
 			const disp = new Disposable(() => {
 				iconDisposables.delete(node);
@@ -190,4 +202,5 @@ class IconNode{
 }
 
 
+IconNode.prototype.destroyed = false;
 module.exports = IconNode;
