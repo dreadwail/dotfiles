@@ -21,7 +21,7 @@ alias diff="colordiff"
 export PATH=$PATH:$HOME/.macvim
 #alias vi="mvim -v"
 #alias vim="mvim -v"
-export EDITOR="mvim"
+export EDITOR="vim"
 
 # Java
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
@@ -35,8 +35,3 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # Yarn
 export PATH="$PATH:`yarn global bin`"
-
-# Learn you an Atom
-alias code="atom"
-alias vi="atom"
-alias vim="atom"
