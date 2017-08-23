@@ -1,5 +1,10 @@
 {
-    "vim.useSolidBlockCursor": true,
+    "git.enabled": false,
+    "jest.enableInlineErrorMessages": false,
+    "jest.enableSnapshotUpdateMessages": false,
+    "jest.autoEnable": false,
+    "editor.minimap.enabled": false,
+    "vim.enableNeovim": true,
     "editor.cursorBlinking": "solid",
     "editor.fontSize": 16,
     "editor.tabSize": 2,
@@ -9,7 +14,9 @@
         "**/.hg": true,
         "**/.DS_Store": true,
         "**/.grunt": true,
-        "**/dist": true
+        "**/dist": true,
+        "**/coverage": true,
+        "**/build": true
     },
     "editor.insertSpaces": true,
     "editor.autoClosingBrackets": false,
@@ -18,7 +25,6 @@
     "editor.trimAutoWhitespace": true,
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
-    "window.showFullPath": true,
     "explorer.openEditors.visible": 0,
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
@@ -26,12 +32,22 @@
     "vim.ignorecase": false,
     "vim.incsearch": false,
     "vim.startInInsertMode": false,
-    "window.reopenFolders": "none",
     "vsicons.dontShowNewVersionMessage": true,
     "vsicons.projectDetection.autoReload": true,
     "window.zoomLevel": 0,
     "diffEditor.renderIndicators": false,
     "files.associations": {
         "*.css": "postcss"
-    }
-  }
+    },
+    "workbench.iconTheme": "vscode-icons",
+    "vim.disableAnnoyingNeovimMessage": true,
+    "workbench.activityBar.visible": true,
+    "window.title": "${activeEditorLong}",
+    "workbench.startupEditor": "none",
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
+    },
+    "window.restoreWindows": "none"
+}
