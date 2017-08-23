@@ -27,7 +27,7 @@ SYMLINK_MANIFEST = [
   ".rbenv/plugins",
   ".vim/after",
   ".vim/bundle/Vundle.vim",
-  ".vim/colors"
+  ".vim/colors",
   ".vscode"
 ]
 
