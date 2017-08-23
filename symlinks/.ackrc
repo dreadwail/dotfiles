@@ -2,3 +2,5 @@
 --ignore-dir=log/
 --ignore-dir=.grunt/
 --ignore-file=match:tags
+--ignore-dir=dist/
+--ignore-dir=vendor/lib/
