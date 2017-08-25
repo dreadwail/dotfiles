@@ -12,6 +12,10 @@ export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
 export PS1="\W \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\[$txtgrn\] \$\[$txtrst\] "
 
+git-lines() {
+  git-graph --interval day --output chart "git ls-files -z $1 | xargs -0 cat | wc -l"
+}
+
 # Shell colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
