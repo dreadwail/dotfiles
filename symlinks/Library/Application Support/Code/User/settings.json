@@ -13,10 +13,7 @@
         "**/.svn": true,
         "**/.hg": true,
         "**/.DS_Store": true,
-        "**/.grunt": true,
-        "**/dist": true,
-        "**/coverage": true,
-        "**/build": true
+        "**/.grunt": true
     },
     "editor.insertSpaces": true,
     "editor.autoClosingBrackets": false,
