@@ -1,4 +1,6 @@
 {
+    "workbench.fontAliasing": "default",
+    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
     "git.enabled": false,
     "jest.enableInlineErrorMessages": false,
     "jest.enableSnapshotUpdateMessages": false,
@@ -13,7 +15,10 @@
         "**/.svn": true,
         "**/.hg": true,
         "**/.DS_Store": true,
-        "**/.grunt": true
+        "**/coverage": true,
+        "**/build": true,
+        "**/dist": true,
+        "**/.jest": true
     },
     "editor.insertSpaces": true,
     "editor.autoClosingBrackets": false,
@@ -46,5 +51,6 @@
         "comments": false,
         "strings": true
     },
-    "window.restoreWindows": "none"
+    "window.restoreWindows": "none",
+    "tslint.enable": true
 }
