@@ -39,3 +39,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # Yarn
 export PATH="$PATH:`yarn global bin`"
+
+# NVM
+source $(brew --prefix nvm)/nvm.sh
