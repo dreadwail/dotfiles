@@ -42,3 +42,6 @@ export PATH="$PATH:`yarn global bin`"
 
 # NVM
 source $(brew --prefix nvm)/nvm.sh
+
+# better than man
+alias man="tldr"

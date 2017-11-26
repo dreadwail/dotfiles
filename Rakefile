@@ -79,6 +79,7 @@ task :brew do
   `brew install wget`
   `brew install cmake`
   `brew install yarn`
+  `brew install tldr`
 end
 
 task :ruby do
