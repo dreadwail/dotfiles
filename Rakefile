@@ -13,7 +13,7 @@ SYMLINK_MANIFEST = [
   ".gitconfig",
   ".gitignore",
   ".gvimrc",
-  ".hushlogin ",
+  ".hushlogin",
   ".inputrc",
   ".profile",
   ".vimrc",
@@ -40,11 +40,12 @@ task :symlink do
     existed = false
     if File.exists?(target) || File.symlink?(target)
       existed = true
-      FileUtils.rm_r(target)
+
+      `mv "#{target}" "#{file}.backup"`
     end
     source = "#{Dir.pwd}/symlinks/#{linkable}"
     printable_source = "symlinks/#{linkable}"
-    extra = "(deleted previous existing)" if existed
+    extra = "(backed up previous existing)" if existed
     printable_target = "~/#{linkable}"
     printf "%-30s %-4s %-35s %s\n", printable_target, "->", printable_source, extra
     `mkdir -p "$(dirname "#{target}")"`
@@ -66,7 +67,7 @@ task :brew do
   `brew install markdown`
   `brew install maven`
   `brew install memcached`
-  `brew install node`
+  `brew install neovim`
   `brew install postgresql`
   `brew install readline`
   `brew install rbenv`
@@ -80,6 +81,12 @@ task :brew do
   `brew install cmake`
   `brew install yarn`
   `brew install tldr`
+end
+
+task :node do
+  `curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash`
+  `nvm install node`
+  `nvm use node`
 end
 
 task :ruby do
@@ -111,6 +118,7 @@ task :vim do
 end
 
 task :uninstall do
+  puts "Uninstalling..."
 
   Dir.glob('**/*.symlink').each do |linkable|
 
@@ -130,14 +138,27 @@ task :uninstall do
   end
 end
 
+task :vscode do
+  puts "Installing vscode..."
+
+  `wget -O vscode.zip https://go.microsoft.com/fwlink/?LinkID=620882`
+  `unzip vscode.zip -d /Applications/`
+  `defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false`
+  `defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false`
+
+  puts "PLEASE NOTE: You must install the command line vscode executable manually."
+end
+
 task :help do
   puts "Run 'rake symlink' to install dot-files."
   puts "Run 'rake brew' to install necessary brew stuff."
+  puts "Run 'rake node' to install node and npm stuff."
   puts "Run 'rake ruby' to install rbenv+plugins and ruby."
   puts "Run 'rake vim' to install vim+plugins."
+  puts "Run 'rake vscode' to install vscode, its config, and its extensions."
   puts "Run 'rake install' to do all of the above."
 end
 
-task :install => [:symlink, :brew, :vim, :ruby]
+task :install => [:symlink, :brew, :node, :vim, :ruby, :vscode]
 
 task :default => 'help'

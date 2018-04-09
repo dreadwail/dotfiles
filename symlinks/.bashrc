@@ -28,7 +28,7 @@ export PATH=$PATH:$HOME/.macvim
 export EDITOR="vim"
 
 # Java
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export JAVA_HOME=`/usr/libexec/java_home -v 10`
 
 # Ruby
 alias bers="bundle exec rails s"
@@ -40,8 +40,10 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # Yarn
 export PATH="$PATH:`yarn global bin`"
 
-# NVM
-source $(brew --prefix nvm)/nvm.sh
-
 # better than man
 alias man="tldr"
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
