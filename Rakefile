@@ -92,8 +92,6 @@ end
 task :ruby do
   puts "\nInstalling rbenv plugins...\n"
   `mkdir -p ~/.rbenv/plugins`
-  `rm -rf ~/.rbenv/plugins/rbenv-ctags`
-  `git clone git://github.com/tpope/rbenv-ctags.git ~/.rbenv/plugins/rbenv-ctags`
   `rm -rf ~/.rbenv/plugins/rbenv-default-gems`
   `git clone git://github.com/sstephenson/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems`
 
@@ -101,9 +99,6 @@ task :ruby do
   `rbenv install -s 2.2.3`
   `rbenv global 2.2.3`
   `rbenv rehash`
-
-  puts "\nRunning rbenv ctags...\n"
-  `rbenv ctags`
 end
 
 task :vim do
