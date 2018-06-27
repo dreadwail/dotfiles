@@ -41,7 +41,7 @@ task :symlink do
     if File.exists?(target) || File.symlink?(target)
       existed = true
 
-      `mv "#{target}" "#{file}.backup"`
+      `mv "#{target}" "#{target}.backup"`
     end
     source = "#{Dir.pwd}/symlinks/#{linkable}"
     printable_source = "symlinks/#{linkable}"
@@ -54,8 +54,11 @@ task :symlink do
 end
 
 task :brew do
-  puts "\nBREWING...\n"
+  puts "\nINSTALLING BREW...\n"
+  system('/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
 
+  puts "\nBREWING...\n"
+  `brew cask install java`
   `brew install ack`
   `brew install colordiff`
   `brew install ctags`
@@ -84,9 +87,10 @@ task :brew do
 end
 
 task :node do
-  `curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash`
-  `nvm install node`
-  `nvm use node`
+  `curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash`
+  `export NVM_DIR="$HOME/.nvm"`
+  `source ~/.bashrc && nvm install node`
+  `source ~/.bashrc && nvm use node`
 end
 
 task :ruby do
@@ -154,6 +158,6 @@ task :help do
   puts "Run 'rake install' to do all of the above."
 end
 
-task :install => [:symlink, :brew, :node, :vim, :ruby, :vscode]
+task :install => [:brew, :symlink, :node, :vim, :ruby, :vscode]
 
 task :default => 'help'
