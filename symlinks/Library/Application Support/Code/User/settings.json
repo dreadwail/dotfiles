@@ -15,9 +15,6 @@
     "**/.svn": true,
     "**/.hg": true,
     "**/.DS_Store": true,
-    "**/coverage": true,
-    "**/build": true,
-    "**/dist": true,
     "**/.jest": true
   },
   "editor.insertSpaces": true,
