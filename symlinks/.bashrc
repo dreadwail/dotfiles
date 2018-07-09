@@ -53,3 +53,5 @@ ulimit -n 4096
 
 # dont use chrome gestures to navigate
 defaults write com.google.Chrome.plist AppleEnableSwipeNavigateWithScrolls -bool FALSE
+defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
+
