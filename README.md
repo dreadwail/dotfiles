@@ -2,13 +2,16 @@
 
 ### Prerequisites
 
- * XCode (including accepting license agreement: `sudo xcodebuild -license`)
- * Java (JDK) [download](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+If you are on a mac you need to install XCode and accept the license:
+
+`sudo xcodebuild -license`
 
 ### Install
 
-Run the following to see the various install options:
+First prepare the script:
 
-```
-rake help
-```
+`bundle install`
+
+Then run the following to see the various install options:
+
+`rake help`

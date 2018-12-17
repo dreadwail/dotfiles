@@ -12,23 +12,23 @@ export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
 export PS1="\W \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\[$txtgrn\] \$\[$txtrst\] "
 
-git-lines() {
-  git-graph --interval day --output chart "git ls-files -z $1 | xargs -0 cat | wc -l"
-}
-
 # Shell colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 alias diff="colordiff"
 
 # MacVim
-export PATH=$PATH:$HOME/.macvim
-#alias vi="mvim -v"
-#alias vim="mvim -v"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export PATH=$PATH:$HOME/.macvim
+  #alias vi="mvim -v"
+  #alias vim="mvim -v"
+fi
 export EDITOR="vim"
 
 # Java
-export JAVA_HOME=`/usr/libexec/java_home -v 10`
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export JAVA_HOME=`/usr/libexec/java_home -v 10`
+fi
 
 # Ruby
 alias bers="bundle exec rails s"
@@ -38,7 +38,9 @@ eval "$(rbenv init -)"
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # Yarn
-export PATH="$PATH:`yarn global bin`"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export PATH="$PATH:`yarn global bin`"
+fi
 
 # better than man
 alias man="tldr"
@@ -51,7 +53,10 @@ export NVM_DIR="$HOME/.nvm"
 # per-process macos resource limits
 ulimit -n 4096
 
-# dont use chrome gestures to navigate
-defaults write com.google.Chrome.plist AppleEnableSwipeNavigateWithScrolls -bool FALSE
-defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # dont use chrome gestures to navigate
+  defaults write com.google.Chrome.plist AppleEnableSwipeNavigateWithScrolls -bool FALSE
+  defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
+fi
+
 
