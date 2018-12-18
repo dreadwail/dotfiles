@@ -15,7 +15,14 @@ export PS1="\W \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\[$txtgrn
 # Shell colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+export LS_COLORS=GxFxCxDxBxegedabagaced
 alias diff="colordiff"
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  export LS_OPTIONS='--color=auto'
+  eval "$(dircolors -b)"
+  alias ls='ls $LS_OPTIONS'
+fi
 
 # MacVim
 if [[ "$OSTYPE" == "darwin"* ]]; then
