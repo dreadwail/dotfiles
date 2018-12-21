@@ -7,7 +7,6 @@ SHARED_SYMLINK_MANIFEST = [
   ".bash_profile",
   ".bashrc",
   ".colordiffrc",
-  ".git_template",
   ".gitconfig",
   ".gitignore",
   ".gvimrc",
