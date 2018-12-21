@@ -56,5 +56,6 @@
   "debug.hideActionBar": false,
   "[typescriptreact]": {},
   "extensions.ignoreRecommendations": true,
-  "telemetry.enableTelemetry": false
+  "telemetry.enableTelemetry": false,
+  "typescript.updateImportsOnFileMove.enabled": "never"
 }
