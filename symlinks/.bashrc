@@ -41,6 +41,9 @@ fi
 alias bers="bundle exec rails s"
 eval "$(rbenv init -)"
 
+# Python
+export PATH=$PATH:/usr/local/opt/python/libexec/bin
+
 # Heroku
 export PATH="/usr/local/heroku/bin:$PATH"
 
