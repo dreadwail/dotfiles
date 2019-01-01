@@ -1,0 +1,2 @@
+JAVA_VERSION="11.0.1"
+MODULES="java.base java.logging java.transaction.xa java.xml java.sql gson java.compiler jdk.compiler jdk.zipfs javacs"
