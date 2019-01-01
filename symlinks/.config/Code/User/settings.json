@@ -57,5 +57,8 @@
   "[typescriptreact]": {},
   "extensions.ignoreRecommendations": true,
   "telemetry.enableTelemetry": false,
-  "html.autoClosingTags": false
+  "html.autoClosingTags": false,
+  "html.format.wrapLineLength": 120,
+  "emmet.showExpandedAbbreviation": "never",
+  "explorer.confirmDelete": false
 }
