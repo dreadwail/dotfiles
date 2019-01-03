@@ -27,8 +27,8 @@ fi
 # MacVim
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH=$PATH:$HOME/.macvim
-  #alias vi="mvim -v"
-  #alias vim="mvim -v"
+  alias vi="mvim -v"
+  alias vim="mvim -v"
 fi
 export EDITOR="vim"
 
