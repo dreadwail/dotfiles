@@ -1,0 +1,233 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Java",
+	"scopeName": "source.java.hover",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#annotation"
+		},
+		{
+			"match": "\\b(\\w+\\.)*[A-Z]\\w*\\b",
+			"captures": {
+				"0": {
+					"patterns": [
+						{
+							"match": "\\b\\w+\\b",
+							"name": "storage.type.java"
+						},
+						{
+							"match": "\\.",
+							"name": "keyword.other.dot"
+						}
+					]
+				}
+			}
+		},
+		{
+			"match": "\\b(byte|short|int|long|char|float|double|boolean|void)\\b",
+			"name": "storage.type.java"
+		},
+		{
+			"match": "\\b([a-z]\\w*)\\b",
+			"name": "variable.java"
+		}
+	],
+	"repository": {
+		"annotation": {
+			"patterns": [
+				{
+					"begin": "(@[^ (]+)(\\()",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.tag"
+						},
+						"2": {
+							"name": "punctuation.definition.tag.left"
+						}
+					},
+					"end": "\\)",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.tag.right"
+						}
+					},
+					"name": "meta.annotation.java",
+					"patterns": [
+						{
+							"captures": {
+								"1": {
+									"name": "punctuation.definition.tag.key"
+								},
+								"2": {
+									"name": "punctuation.definition.tag.assign"
+								}
+							},
+							"match": "(\\w*) *(=)"
+						},
+						{
+							"include": "#code"
+						}
+					]
+				},
+				{
+					"match": "@\\w+",
+					"name": "punctuation.definition.tag"
+				}
+			]
+		},
+		"keywords":  {
+			"patterns": [
+				{
+					"match": "\\b(var|class|package|import)\\b",
+					"name": "keyword.other"
+				},
+				{
+					"match": "\\b(try|finally|throw|return|break|continue|do|for|while|switch|case|if|else|goto)\\b",
+					"name": "keyword.control"
+				},
+				{
+					"match": "\\b(new|instanceof)\\b",
+					"name": "keyword.control"
+				},
+				{
+					"match": "\\.(class)\\b",
+					"captures": {
+						"1": {
+							"name": "keyword.control"
+						}
+					}
+				},
+				{
+					"match": "\\b(default):",
+					"captures": {
+						"1": {
+							"name": "keyword.control.default"
+						}
+					}
+				},
+				{
+					"match": "\\b(private|public|protected|default(?!=:)|static|final|const|extends|implements)\\b",
+					"name": "storage.modifier.java"
+				},
+				{
+					"match": "\\b(this|super)\\b",
+					"name": "variable.language.java"
+				},
+				{
+					"match": "[\\?<>\\[\\]]",
+					"name": "keyword.other"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"begin": "/\\*",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment"
+						}
+					},
+					"end": "\\*/",
+					"name": "comment.block"
+				},
+				{
+					"begin": "(//) *(TODO)",
+					"end": "$",
+					"contentName": "punctuation.definition.tag",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.tag"
+						},
+						"2": {
+							"name": "comment.block",
+							"patterns": [
+								{
+									"match": "TODO",
+									"name": "markup.italic"
+								}
+							]
+						}
+					}
+				},
+				{
+					"begin": "//",
+					"end": "$",
+					"name": "punctuation.definition.tag"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"match": "\\b(null|true|false)\\b",
+					"name": "constant.numeric"
+				},
+				{
+					"match": "(?x)\n\\b(?<!\\$)\n0(x|X)\n(\n  (?<!\\.)[0-9a-fA-F]([0-9a-fA-F_]*[0-9a-fA-F])?[Ll]?(?!\\.)\n  |\n  (\n    [0-9a-fA-F]([0-9a-fA-F_]*[0-9a-fA-F])?\\.?\n    |\n    ([0-9a-fA-F]([0-9a-fA-F_]*[0-9a-fA-F])?)?\\.[0-9a-fA-F]([0-9a-fA-F_]*[0-9a-fA-F])?\n  )\n  [Pp][+-]?[0-9]([0-9_]*[0-9])?[FfDd]?\n)\n\\b(?!\\$)",
+					"name": "constant.numeric.hex"
+				},
+				{
+					"match": "\\b(?<!\\$)0(b|B)[01]([01_]*[01])?[Ll]?\\b(?!\\$)",
+					"name": "constant.numeric.binary"
+				},
+				{
+					"match": "\\b(?<!\\$)0[0-7]([0-7_]*[0-7])?[Ll]?\\b(?!\\$)",
+					"name": "constant.numeric.octal"
+				},
+				{
+					"match": "(?x)\n(?<!\\$)\n(\n  \\b[0-9]([0-9_]*[0-9])?\\.\\B(?!\\.)\n  |\n  \\b[0-9]([0-9_]*[0-9])?\\.([Ee][+-]?[0-9]([0-9_]*[0-9])?)[FfDd]?\\b\n  |\n  \\b[0-9]([0-9_]*[0-9])?\\.([Ee][+-]?[0-9]([0-9_]*[0-9])?)?[FfDd]\\b\n  |\n  \\b[0-9]([0-9_]*[0-9])?\\.([0-9]([0-9_]*[0-9])?)([Ee][+-]?[0-9]([0-9_]*[0-9])?)?[FfDd]?\\b\n  |\n  (?<!\\.)\\B\\.[0-9]([0-9_]*[0-9])?([Ee][+-]?[0-9]([0-9_]*[0-9])?)?[FfDd]?\\b\n  |\n  \\b[0-9]([0-9_]*[0-9])?([Ee][+-]?[0-9]([0-9_]*[0-9])?)[FfDd]?\\b\n  |\n  \\b[0-9]([0-9_]*[0-9])?([Ee][+-]?[0-9]([0-9_]*[0-9])?)?[FfDd]\\b\n  |\n  \\b(0|[1-9]([0-9_]*[0-9])?)(?!\\.)[Ll]?\\b\n)\n(?!\\$)",
+					"name": "constant.numeric.decimal"
+				},
+				{
+					"begin": "\"",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin"
+						}
+					},
+					"end": "\"",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end"
+						}
+					},
+					"name": "string.quoted.double.java",
+					"patterns": [
+						{
+							"match": "\\\\.",
+							"name": "constant.character.escape"
+						}
+					]
+				},
+				{
+					"begin": "'",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin"
+						}
+					},
+					"end": "'",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end"
+						}
+					},
+					"name": "string.quoted.single.java",
+					"patterns": [
+						{
+							"match": "\\\\.",
+							"name": "constant.character.escape"
+						}
+					]
+				}
+			]
+		}
+	}
+}
