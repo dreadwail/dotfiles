@@ -58,5 +58,6 @@
   "[typescriptreact]": {},
   "extensions.ignoreRecommendations": true,
   "telemetry.enableTelemetry": false,
-  "typescript.updateImportsOnFileMove.enabled": "never"
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "eslint.autoFixOnSave": true
 }
