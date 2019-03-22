@@ -6,4 +6,4 @@
 --ignore-dir=dist/
 --ignore-dir=vendor/lib/
 --ignore-dir=.jest/
---ignore-dir=storybook/static/
+--ignore-file=match:\.bundle\.js
