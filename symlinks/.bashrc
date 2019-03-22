@@ -48,9 +48,9 @@ export PATH=$PATH:/usr/local/opt/python/libexec/bin
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # Yarn
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  export PATH="$PATH:`yarn global bin`"
-fi
+# if [[ "$OSTYPE" == "darwin"* ]]; then
+#   export PATH="$PATH:`yarn global bin`"
+# fi
 
 # better than man
 alias man="tldr"
