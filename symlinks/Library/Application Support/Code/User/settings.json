@@ -7,6 +7,7 @@
   "jest.autoEnable": false,
   "editor.minimap.enabled": false,
   "vim.enableNeovim": true,
+  "vim.neovimPath": "/usr/local/bin/nvim",
   "editor.cursorBlinking": "solid",
   "editor.fontSize": 16,
   "editor.tabSize": 2,
