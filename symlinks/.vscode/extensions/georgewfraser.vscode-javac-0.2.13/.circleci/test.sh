@@ -1,2 +1,0 @@
-FILES=`find src/test/java -name '*Test.java' | sed -e 's|^src/test/java/||' -e 's|.java$||' -e 's|/|.|g'`
-java -cp $(cat target/cp.txt):$(pwd)/target/classes:$(pwd)/target/test-classes org.junit.runner.JUnitCore $FILES

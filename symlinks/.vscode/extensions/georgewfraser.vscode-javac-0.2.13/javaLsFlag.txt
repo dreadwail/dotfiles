@@ -1,1 +1,0 @@
-This file is a flag to help Lib#installRoot find the root directory of the extension.
