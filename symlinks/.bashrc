@@ -1,3 +1,4 @@
+source ~/projects/web/profile
 source ~/.secrets
 source ~/.workrc
 source ~/.bash/git-completion.sh
@@ -32,28 +33,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 export EDITOR="vim"
 
-# Java
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  export JAVA_HOME=`/usr/libexec/java_home -v 10`
-fi
-
 # Ruby
-alias bers="bundle exec rails s"
 eval "$(rbenv init -)"
 
 # Python
-export PATH=$PATH:/usr/local/opt/python/libexec/bin
+export PATH=$HOME/Library/Python/2.7/bin:$PATH
 
 # Heroku
 export PATH="/usr/local/heroku/bin:$PATH"
-
-# Yarn
-# if [[ "$OSTYPE" == "darwin"* ]]; then
-#   export PATH="$PATH:`yarn global bin`"
-# fi
-
-# better than man
-alias man="tldr"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -68,5 +55,3 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   defaults write com.google.Chrome.plist AppleEnableSwipeNavigateWithScrolls -bool FALSE
   defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
 fi
-
-

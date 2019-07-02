@@ -15,8 +15,6 @@ SHARED_SYMLINK_MANIFEST = [
   ".profile",
   ".vimrc",
   ".zshrc",
-  ".rbenv/default-gems",
-  ".rbenv/plugins",
   ".vim/after",
   ".vim/bundle/Vundle.vim",
   ".vim/colors",
@@ -79,46 +77,32 @@ task :software do
     system('/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
 
     puts "\nBREWING...\n"
-    `brew cask install java`
     `brew install ack`
     `brew install colordiff`
-    `brew install ctags`
-    `brew install rbenv`
-    `brew install go`
     `brew install htop`
     `brew install jq`
     `brew install macvim`
-    `brew install markdown`
-    `brew install maven`
-    `brew install memcached`
     `brew install neovim`
-    `brew install postgresql`
+    `brew install nvm`
     `brew install readline`
     `brew install rbenv`
     `brew install ruby-build`
-    `brew install sdl2`
     `brew install the_silver_searcher`
     `brew install tmux`
     `brew install tree`
     `brew install watch`
     `brew install wget`
-    `brew install cmake`
     `brew install yarn`
-    `brew install tldr`
   end
 
   if OS.linux?
     puts "\nLINUX DETECTED. INSTALLING APT SOFTWARE...\n"
 
-    system('sudo apt install git ack colordiff ctags rbenv htop jq markdown postgresql ruby-build tmux tree watch wget cmake yarn tldr gcc g++ make')
+    system('sudo apt install git ack colordiff rbenv htop jq ruby-build tmux tree watch wget yarn gcc g++ make')
   end
 end
 
 task :node do
-  puts "\nINSTALLING NVM...\n"
-  `curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash`
-  `export NVM_DIR="$HOME/.nvm"`
-
   puts "\nINSTALLING NODE WITH NVM...\n"
 
   `source ~/.bashrc && nvm install node`
@@ -126,14 +110,9 @@ task :node do
 end
 
 task :ruby do
-  puts "\nInstalling rbenv plugins...\n"
-  `mkdir -p ~/.rbenv/plugins`
-  `rm -rf ~/.rbenv/plugins/rbenv-default-gems`
-  `git clone git://github.com/sstephenson/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems`
-
   puts "\nInstalling rubies...\n"
-  `rbenv install -s 2.4.1`
-  `rbenv global 2.4.1`
+  `rbenv install -s 2.4.6`
+  `rbenv global 2.4.6`
   `rbenv rehash`
 end
 
@@ -177,22 +156,16 @@ task :uninstall do
 end
 
 task :vscode do
-  puts "Installing vscode..."
+  puts "PLEASE NOTE: You must separately install vscode manually for your respective OS."
 
+  puts "Configuring OS-level things for vscode..."
   if OS.linux?
-    `wget -O vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868`
-    `sudo apt install ./vscode.deb`
     `xdg-mime default code.desktop text/plain`
   end
 
   if OS.mac?
-    `wget -O vscode.zip https://go.microsoft.com/fwlink/?LinkID=620882`
-    `unzip vscode.zip -d /Applications/`
-
     `defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false`
     `defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false`
-
-    puts "PLEASE NOTE: You must install the command line vscode executable manually."
   end
 end
 
