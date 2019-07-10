@@ -74,9 +74,12 @@ task :software do
 
   if OS.mac?
     puts "\nMAC DETECTED. INSTALLING HOMEBREW.\n"
+    # TODO: detect if brew is already installed here instead of reinstalling each time
     system('/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
 
     puts "\nBREWING...\n"
+    `brew install icu4c`
+    `brew install node`
     `brew install ack`
     `brew install colordiff`
     `brew install htop`
@@ -102,21 +105,21 @@ task :software do
   end
 end
 
-task :node do
+task :node => :software do
   puts "\nINSTALLING NODE WITH NVM...\n"
 
   `source ~/.bashrc && nvm install node`
   `source ~/.bashrc && nvm use node`
 end
 
-task :ruby do
+task :ruby => :software do
   puts "\nInstalling rubies...\n"
   `rbenv install -s 2.4.6`
   `rbenv global 2.4.6`
   `rbenv rehash`
 end
 
-task :vim do
+task :vim => :software do
   puts "\nEnsuring vim is installed...\n"
 
   if OS.mac?
@@ -156,6 +159,7 @@ task :uninstall do
 end
 
 task :vscode do
+  # TODO: make this output bigger/scarier
   puts "PLEASE NOTE: You must separately install vscode manually for your respective OS."
 
   puts "Configuring OS-level things for vscode..."
