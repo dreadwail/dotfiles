@@ -48,7 +48,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
 # per-process macos resource limits
-ulimit -n 524288
+ulimit -n 524288 524288
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # dont use chrome gestures to navigate
