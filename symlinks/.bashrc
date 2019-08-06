@@ -1,4 +1,3 @@
-source ~/projects/web/profile
 source ~/.secrets
 source ~/.workrc
 source ~/.bash/git-completion.sh
