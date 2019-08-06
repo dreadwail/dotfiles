@@ -1,0 +1,47 @@
+{
+	"name": "save-without-format",
+	"displayName": "Save Without Format",
+	"description": "Save a file without auto formatting",
+	"icon": "icon.png",
+	"version": "0.0.3",
+	"publisher": "Gruntfuggly",
+	"repository": "https://github.com/Gruntfuggly/save-without-format",
+	"engines": {
+		"vscode": "^1.5.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "save-without-format.save",
+				"title": "Save Without Format"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "save-without-format.save",
+				"key": "shift+alt+s",
+				"when": "editorTextFocus && !editorReadonly"
+			}
+		]
+	},
+	"devDependencies": {
+		"typescript": "^2.0.3",
+		"vscode": "^1.0.0",
+		"mocha": "^2.3.3",
+		"eslint": "^3.6.0",
+		"@types/node": "^6.0.40",
+		"@types/mocha": "^2.2.32"
+	},
+	"__metadata": {
+		"id": "7a06196f-475e-4349-935f-745f04915e27",
+		"publisherId": "d4906d2e-f2ee-492d-9c7c-02b6160599ec",
+		"publisherDisplayName": "Gruntfuggly"
+	}
+}
