@@ -1,4 +1,42 @@
 [
   { "key": "shift+cmd+]", "command": "workbench.action.nextEditor" },
-  { "key": "shift+cmd+[", "command": "workbench.action.previousEditor" }
+  { "key": "shift+alt+]", "command": "workbench.action.nextEditor" },
+  { "key": "shift+cmd+[", "command": "workbench.action.previousEditor" },
+  { "key": "shift+alt+[", "command": "workbench.action.previousEditor" },
+  {
+    "key": "alt+s",
+    "command": "workbench.action.files.save"
+  },
+  {
+    "key": "ctrl+s",
+    "command": "workbench.action.files.save"
+  },
+  {
+    "key": "cmd+s",
+    "command": "workbench.action.files.save"
+  },
+  {
+    "key": "alt+w",
+    "command": "workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "alt+q",
+    "command": "workbench.action.quit"
+  },
+  {
+    "key": "cmd+q",
+    "command": "workbench.action.quit"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "workbench.action.quit"
+  }
 ]
