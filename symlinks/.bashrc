@@ -55,3 +55,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   defaults write com.google.Chrome.plist AppleEnableSwipeNavigateWithScrolls -bool FALSE
   defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
 fi
+
+# Android
+PATH=$PATH:~/Library/Android/sdk/platform-tools
+export ANDROID_HOME=~/Library/Android/sdk
+export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home
