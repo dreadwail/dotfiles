@@ -1,4 +1,7 @@
 {
+  "[html]": {
+    "editor.formatOnSave": false
+  },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
@@ -25,6 +28,9 @@
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": true,
   "editor.wordWrapColumn": 120,
+  "eslint.alwaysShowStatus": true,
+  "eslint.packageManager": "yarn",
+  "eslint.run": "onType",
   "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
   "files.exclude": {
@@ -37,11 +43,18 @@
   "files.associations": {
     "*.css": "postcss"
   },
+  "flow.pathToFlow": "${workspaceFolder}/node_modules/.bin/flow",
+  "flow.runOnEdit": true,
   "git.enabled": false,
+  "javascript.validate.enable": false,
+  "javascript.format.enable": false,
+  "prettier.disableLanguages": ["markdown"],
   "prettier.printWidth": 120,
   "prettier.tslintIntegration": true,
+  "prettier.eslintIntegration": true,
   "telemetry.enableTelemetry": false,
   "typescript.updateImportsOnFileMove.enabled": "never",
+  "typescript.validate.enable": false,
   "vim.enableNeovim": true,
   "vim.ignorecase": false,
   "vim.incsearch": false,
@@ -57,5 +70,7 @@
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.fontAliasing": "default",
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "flow.logLevel": "warn",
+  "vsicons.dontShowNewVersionMessage": true
 }
