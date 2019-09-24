@@ -87,6 +87,7 @@ task :software do
     `brew install macvim`
     `brew install neovim`
     `brew install nvm`
+    `brew install pyenv`
     `brew install readline`
     `brew install rbenv`
     `brew install ruby-build`
@@ -113,10 +114,16 @@ task :node => :software do
 end
 
 task :ruby => :software do
-  puts "\nInstalling rubies...\n"
+  puts "\nInstalling ruby...\n"
   `rbenv install -s 2.4.6`
   `rbenv global 2.4.6`
   `rbenv rehash`
+end
+
+task :python => :software do
+  puts "\nInstalling python...\n"
+  `pyenv install 3.6.8`
+  `pyenv global 3.6.8`
 end
 
 task :vim => :software do
