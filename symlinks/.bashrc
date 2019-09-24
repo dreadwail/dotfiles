@@ -35,9 +35,6 @@ export EDITOR="vim"
 # Ruby
 eval "$(rbenv init -)"
 
-# Python
-export PATH=$HOME/Library/Python/2.7/bin:$PATH
-
 # Heroku
 export PATH="/usr/local/heroku/bin:$PATH"
 
