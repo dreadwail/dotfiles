@@ -1,10 +1,31 @@
 {
   "[html]": {
-    "editor.formatOnSave": false
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
   },
   "diffEditor.renderIndicators": false,
   "editor.autoClosingBrackets": "never",
@@ -17,6 +38,7 @@
   "editor.formatOnSave": true,
   "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "editor.fontSize": 16,
+  "editor.gotoLocation.multiple": "goto",
   "editor.insertSpaces": true,
   "editor.minimap.enabled": false,
   "editor.quickSuggestions": {
@@ -24,13 +46,35 @@
     "comments": false,
     "strings": true
   },
-  "editor.rulers": [120],
+  "editor.rulers": [
+    120
+  ],
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": true,
   "editor.wordWrapColumn": 120,
   "eslint.alwaysShowStatus": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.enable": true,
   "eslint.packageManager": "yarn",
   "eslint.run": "onType",
+  "eslint.validate": [
+    {
+      "language": "javascript",
+      "autoFix": true
+    },
+    {
+      "language": "javascriptreact",
+      "autoFix": true
+    },
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ],
   "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
   "files.exclude": {
@@ -41,20 +85,27 @@
     "**/.jest": true
   },
   "files.associations": {
-    "*.css": "postcss"
+    "*.css": "postcss",
+    ".workrc": "shellscript"
   },
+  "flow.logLevel": "warn",
   "flow.pathToFlow": "${workspaceFolder}/node_modules/.bin/flow",
   "flow.runOnEdit": true,
   "git.enabled": false,
-  "javascript.validate.enable": false,
+  "javascript.validate.enable": true,
   "javascript.format.enable": false,
-  "prettier.disableLanguages": ["markdown"],
+  "javascript.suggest.autoImports": false,
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "prettier.disableLanguages": [
+    "markdown"
+  ],
   "prettier.printWidth": 120,
-  "prettier.tslintIntegration": true,
-  "prettier.eslintIntegration": true,
   "telemetry.enableTelemetry": false,
+  "tslint.autoFixOnSave": true,
+  "typescript.autoImportSuggestions.enabled": false,
+  "typescript.suggest.autoImports": false,
   "typescript.updateImportsOnFileMove.enabled": "never",
-  "typescript.validate.enable": false,
+  "typescript.validate.enable": true,
   "vim.enableNeovim": true,
   "vim.ignorecase": false,
   "vim.incsearch": false,
@@ -63,6 +114,7 @@
   "vim.startInInsertMode": false,
   "vim.useCtrlKeys": true,
   "vim.useSystemClipboard": true,
+  "vsicons.dontShowNewVersionMessage": true,
   "window.restoreWindows": "none",
   "window.title": "${activeEditorLong}",
   "window.zoomLevel": 0,
@@ -71,6 +123,4 @@
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.fontAliasing": "default",
   "workbench.startupEditor": "none",
-  "flow.logLevel": "warn",
-  "vsicons.dontShowNewVersionMessage": true
 }
