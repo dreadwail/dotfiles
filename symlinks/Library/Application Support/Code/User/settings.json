@@ -75,6 +75,7 @@
       "autoFix": true
     }
   ],
+  "explorer.autoReveal": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
   "files.exclude": {
@@ -99,7 +100,6 @@
   "prettier.disableLanguages": [
     "markdown"
   ],
-  "prettier.printWidth": 120,
   "telemetry.enableTelemetry": false,
   "tslint.autoFixOnSave": true,
   "typescript.autoImportSuggestions.enabled": false,
