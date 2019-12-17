@@ -30,7 +30,8 @@
   "diffEditor.renderIndicators": false,
   "editor.autoClosingBrackets": "never",
   "editor.codeActionsOnSave": {
-    "source.fixAll.tslint": true
+    "source.fixAll.tslint": true,
+    "source.fixAll.eslint": true
   },
   "editor.cursorBlinking": "solid",
   "editor.cursorStyle": "block",
