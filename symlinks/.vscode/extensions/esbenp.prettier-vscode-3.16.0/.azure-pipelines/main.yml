@@ -1,0 +1,48 @@
+variables:
+  azure_pipelines: true
+
+trigger:
+  branches:
+    include:
+      - "*"
+  tags:
+    include:
+      - v*
+pr:
+  - "*"
+
+stages:
+  - stage: build
+    jobs:
+      - job: Windows
+        pool:
+          vmImage: windows-latest
+        steps:
+          - template: common/build.yml
+          - template: common/test.yml
+
+      - job: Linux
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - template: common/build.yml
+          - template: common/test.yml
+
+      - job: macOS
+        pool:
+          vmImage: macos-latest
+        steps:
+          - template: common/build.yml
+          - template: common/test.yml
+  - stage: release
+    jobs:
+      - job: Release
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - template: common/build.yml
+          - template: common/package.yml
+          - template: common/release.yml
+            condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/v'))
+          - template: common/publish.yml
+            condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/v'))
