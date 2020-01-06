@@ -39,7 +39,8 @@
   "editor.formatOnSave": true,
   "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "editor.fontSize": 16,
-  "editor.gotoLocation.multiple": "goto",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.gotoLocation.multipleImplementations": "goto",
   "editor.insertSpaces": true,
   "editor.minimap.enabled": false,
   "editor.quickSuggestions": {
@@ -54,29 +55,15 @@
   "editor.trimAutoWhitespace": true,
   "editor.wordWrapColumn": 120,
   "eslint.alwaysShowStatus": true,
-  "eslint.autoFixOnSave": true,
   "eslint.enable": true,
   "eslint.packageManager": "yarn",
   "eslint.run": "onType",
   "eslint.validate": [
-    {
-      "language": "javascript",
-      "autoFix": true
-    },
-    {
-      "language": "javascriptreact",
-      "autoFix": true
-    },
-    {
-      "language": "typescript",
-      "autoFix": true
-    },
-    {
-      "language": "typescriptreact",
-      "autoFix": true
-    }
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
   ],
-  "explorer.autoReveal": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
   "files.exclude": {
