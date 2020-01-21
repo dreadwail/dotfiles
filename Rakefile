@@ -102,26 +102,30 @@ task :software do
   if OS.linux?
     puts "\nLINUX DETECTED. INSTALLING APT SOFTWARE...\n"
 
-    system('sudo apt install git ack colordiff rbenv htop jq ruby-build tmux tree watch wget yarn gcc g++ make')
+    system('sudo apt install ack bzip2 colordiff gcc g++ git htop jq libreadline6 libreadline6-dev make openssl rbenv ruby-build tmux tree watch wget yarn')
+    system('curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash')
   end
 end
 
 task :node => :software do
   puts "\nINSTALLING NODE WITH NVM...\n"
 
-  `source ~/.bashrc && nvm install node`
-  `source ~/.bashrc && nvm use node`
+  `bash -c "source ~/.bashrc && nvm install node"`
+  `bash -c "source ~/.bashrc && nvm use node"`
 end
 
 task :ruby => :software do
   puts "\nInstalling ruby...\n"
-  `rbenv install -s 2.4.6`
-  `rbenv global 2.4.6`
+  `rbenv install -s 2.4.0`
+  `rbenv global 2.4.0`
   `rbenv rehash`
 end
 
 task :python => :software do
   puts "\nInstalling python...\n"
+
+  `rm -rf ~/.pyenv`
+  `curl https://pyenv.run | bash`
   `pyenv install 3.6.8`
   `pyenv global 3.6.8`
 end
