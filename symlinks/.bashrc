@@ -22,6 +22,9 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   export LS_OPTIONS='--color=auto'
   eval "$(dircolors -b)"
   alias ls='ls $LS_OPTIONS'
+  alias grep='grep $LS_OPTIONS'
+  alias fgrep='fgrep $LS_OPTIONS'
+  alias egrep='egrep $LS_OPTIONS'
 fi
 
 # MacVim
@@ -33,15 +36,15 @@ fi
 export EDITOR="vim"
 
 # Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-
 # Heroku
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # per-process macos resource limits
 ulimit -n 524288 524288
@@ -56,3 +59,24 @@ fi
 PATH=$PATH:~/Library/Android/sdk/platform-tools
 export ANDROID_HOME=~/Library/Android/sdk
 export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home
+
+# Python
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# Ubuntu-provided default bashrc values
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  # If not running interactively, don't do anything
+  case $- in
+      *i*) ;;
+        *) return;;
+  esac
+
+  # append to the history file, don't overwrite it
+  shopt -s histappend
+
+  # check the window size after each command and, if necessary,
+  # update the values of LINES and COLUMNS.
+  shopt -s checkwinsize
+fi
