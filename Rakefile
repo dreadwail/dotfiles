@@ -83,6 +83,7 @@ task :software do
     `brew install ack`
     `brew install colordiff`
     `brew install htop`
+    `brew install httpie`
     `brew install jq`
     `brew install macvim`
     `brew install neovim`
@@ -102,7 +103,7 @@ task :software do
   if OS.linux?
     puts "\nLINUX DETECTED. INSTALLING APT SOFTWARE...\n"
 
-    system('sudo apt install ack bzip2 colordiff gcc g++ git htop jq libreadline6 libreadline6-dev make openssl rbenv ruby-build tmux tree watch wget yarn')
+    system('sudo apt install ack bzip2 colordiff g++ git gcc htop httpie jq libreadline6 libreadline6-dev make openssl rbenv ruby-build tmux tree watch wget yarn')
     system('curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash')
   end
 end
