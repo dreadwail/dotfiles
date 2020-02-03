@@ -6,6 +6,7 @@ export PATH=$PATH:$HOME:$HOME/bin
 
 alias grep="grep --color=always"
 alias less="less -R"
+alias curl="echo \"use instead: http\""
 
 # Git-aware prompt
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
@@ -64,6 +65,17 @@ export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Hom
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# TCP listeners
+listening() {
+  if [ $# -eq 0 ]; then
+    sudo lsof -iTCP -sTCP:LISTEN -n -P
+  elif [ $# -eq 1 ]; then
+    sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+  else
+    echo "Usage: listening [pattern]"
+  fi
+}
 
 # Ubuntu-provided default bashrc values
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
