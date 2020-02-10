@@ -6,7 +6,9 @@
   "diffEditor.renderIndicators": false,
   "editor.autoClosingBrackets": "never",
   "editor.codeActionsOnSave": {
-    "source.fixAll.tslint": true
+    "source.fixAll.tslint": true,
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
   },
   "editor.cursorBlinking": "solid",
   "editor.cursorStyle": "block",
@@ -39,7 +41,6 @@
   },
   "git.enabled": false,
   "prettier.printWidth": 120,
-  "prettier.tslintIntegration": true,
   "telemetry.enableTelemetry": false,
   "typescript.updateImportsOnFileMove.enabled": "never",
   "vim.enableNeovim": true,
@@ -50,6 +51,7 @@
   "vim.startInInsertMode": false,
   "vim.useCtrlKeys": true,
   "vim.useSystemClipboard": true,
+  "window.menuBarVisibility": "default",
   "window.restoreWindows": "none",
   "window.title": "${activeEditorLong}",
   "window.zoomLevel": 0,
