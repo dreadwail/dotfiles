@@ -1,4 +1,4 @@
-# Ben's dot files
+# Dreadwail's dot files
 
 ### Prerequisites
 
