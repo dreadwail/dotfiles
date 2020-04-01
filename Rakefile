@@ -90,7 +90,6 @@ task :software do
     `brew install macvim`
     `brew install neovim`
     `brew install nvm`
-    `brew install pyenv`
     `brew install readline`
     `brew install rbenv`
     `brew install ruby-build`
