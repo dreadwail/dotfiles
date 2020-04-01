@@ -1,3 +1,6 @@
+# MacOS goofyness
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 source ~/.secrets
 source ~/.workrc
 source ~/.bash/git-completion.sh
