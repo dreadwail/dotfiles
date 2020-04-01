@@ -34,7 +34,7 @@ LINUX_SYMLINK_MANIFEST = [
 
 desc "Hook our dotfiles into system-standard positions."
 task :symlink do
-  puts "\nSYMLINKING...\n"
+  puts "\n\nSYMLINKING...\n\n"
 
   `touch ~/.secrets`
   `touch ~/.workrc`
@@ -67,10 +67,12 @@ task :symlink do
     `mkdir -p "$(dirname "#{target}")"`
     `ln -s "#{source}" "#{target}"`
   end
+
+  puts "\n\nDONE SYMLINKING...\n\n"
 end
 
 task :software do
-  puts "\nINSTALLING SOFTWARE...\n"
+  puts "\n\nINSTALLING SOFTWARE...\n\n"
 
   if OS.mac?
     puts "\nMAC DETECTED. INSTALLING HOMEBREW.\n"
@@ -106,33 +108,45 @@ task :software do
     system('sudo apt install ack bzip2 colordiff g++ git gcc htop httpie jq libreadline6 libreadline6-dev make openssl rbenv ruby-build tmux tree watch wget yarn')
     system('curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash')
   end
+
+  puts "\n\nDONE INSTALLING SOFTWARE...\n\n"
 end
 
 task :node => :software do
-  puts "\nINSTALLING NODE WITH NVM...\n"
+  puts "\n\nINSTALLING NODE WITH NVM...\n\n"
+
+  `brew install nvm`
+  `mkdir -p ~/.nvm`
 
   `bash -c "source ~/.bashrc && nvm install node"`
   `bash -c "source ~/.bashrc && nvm use node"`
+
+  puts "\n\nDONE INSTALLING NODE WITH NVM...\n\n"
 end
 
 task :ruby => :software do
-  puts "\nInstalling ruby...\n"
+  puts "\n\nINSTALLING RUBY\n\n"
+
   `rbenv install -s 2.4.0`
   `rbenv global 2.4.0`
   `rbenv rehash`
+
+  puts "\n\nDONE INSTALLING RUBY\n\n"
 end
 
 task :python => :software do
-  puts "\nInstalling python...\n"
+  puts "\n\nINSTALLING PYTHON...\n\n"
 
   `rm -rf ~/.pyenv`
   `curl https://pyenv.run | bash`
   `pyenv install 3.6.8`
   `pyenv global 3.6.8`
+
+  puts "\n\nDONE INSTALLING PYTHON...\n\n"
 end
 
 task :vim => :software do
-  puts "\nEnsuring vim is installed...\n"
+  puts "\n\nINSTALLING VIM...\n\n"
 
   if OS.mac?
     `brew install macvim`
@@ -143,17 +157,19 @@ task :vim => :software do
   end
 
   puts "\nPreparing Vundle\n"
+  `rm -rf ~/.vim/bundle/Vundle.vim`
   `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 
   puts "\nInstalling vim plugins...\n"
   `vim +PluginInstall +qall`
+
+  puts "\n\nDONE INSTALLING VIM...\n\n"
 end
 
 task :uninstall do
-  puts "Uninstalling..."
+  puts "\n\nUNINSTALLING...\n\n"
 
   Dir.glob('**/*.symlink').each do |linkable|
-
     file = linkable.split('/').last.split('.symlink').last
     target = "#{ENV["HOME"]}/.#{file}"
 
@@ -168,9 +184,13 @@ task :uninstall do
     end
 
   end
+
+  puts "\n\nDONE UNINSTALLING...\n\n"
 end
 
 task :vscode do
+  puts "\n\nCONFIGURING VSCODE...\n\n"
+
   # TODO: make this output bigger/scarier
   puts "PLEASE NOTE: You must separately install vscode manually for your respective OS."
 
@@ -183,6 +203,8 @@ task :vscode do
     `defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false`
     `defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false`
   end
+
+  puts "\n\nDONE CONFIGURING VSCODE...\n\n"
 end
 
 task :help do
