@@ -77,7 +77,7 @@ task :software do
   if OS.mac?
     puts "\nMAC DETECTED. INSTALLING HOMEBREW.\n"
     # TODO: detect if brew is already installed here instead of reinstalling each time
-    system('/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
+    system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"')
 
     puts "\nBREWING...\n"
     `brew install icu4c`
@@ -106,7 +106,7 @@ task :software do
     puts "\nLINUX DETECTED. INSTALLING APT SOFTWARE...\n"
 
     system('sudo apt install ack bzip2 colordiff g++ git gcc htop httpie jq libreadline6 libreadline6-dev make openssl rbenv ruby-build tmux tree watch wget yarn')
-    system('curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash')
+    system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"')
   end
 
   puts "\n\nDONE INSTALLING SOFTWARE...\n\n"
@@ -182,7 +182,6 @@ task :uninstall do
     if File.exists?("#{ENV["HOME"]}/.#{file}.backup")
       `mv "$HOME/.#{file}.backup" "$HOME/.#{file}"`
     end
-
   end
 
   puts "\n\nDONE UNINSTALLING...\n\n"
