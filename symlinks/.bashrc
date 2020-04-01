@@ -37,6 +37,7 @@ fi
 export EDITOR="vim"
 
 # Ruby
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 # Heroku
