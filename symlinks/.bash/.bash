@@ -1,1 +1,0 @@
-/home/onth/code/dotfiles/symlinks/.bash
