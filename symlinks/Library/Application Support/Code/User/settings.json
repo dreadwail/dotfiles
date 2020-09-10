@@ -29,6 +29,7 @@
   },
   "diffEditor.renderIndicators": false,
   "editor.autoClosingBrackets": "never",
+  "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.tslint": true,
     "source.fixAll.eslint": true
