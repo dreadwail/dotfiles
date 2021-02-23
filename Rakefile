@@ -27,11 +27,6 @@ MAC_SYMLINK_MANIFEST = [
   "Library/Application Support/Code/User/keybindings.json",
 ]
 
-LINUX_SYMLINK_MANIFEST = [
-  ".config/Code/User/settings.json",
-  ".config/Code/User/keybindings.json"
-]
-
 desc "Hook our dotfiles into system-standard positions."
 task :symlink do
   puts "\n\nSYMLINKING...\n\n"
@@ -47,8 +42,8 @@ task :symlink do
   end
 
   if OS.linux?
-    puts "\nLINUX DETECTED, INCLUDING OS-SPECIFIC SYMLINKS...\n"
-    manifest += LINUX_SYMLINK_MANIFEST
+    puts "\nLINUX DETECTED. NO OS-SPECIFIC SYMLINKS WILL BE PLACED. YOU MUST DO THIS MANUALLY.\n"
+    puts "\nNOTABLY: PLEASE COPY THE VSCODE SETTINGS MANUALLY FROM THEIR MACOS LOCATIONS.\n"
   end
 
   manifest.each do |linkable|
@@ -189,8 +184,7 @@ end
 task :vscode do
   puts "\n\nCONFIGURING VSCODE...\n\n"
 
-  # TODO: make this output bigger/scarier
-  puts "PLEASE NOTE: You must separately install vscode manually for your respective OS."
+  puts "\n\n ***** PLEASE NOTE: You must separately install vscode manually for your respective OS.\n\n"
 
   puts "Configuring OS-level things for vscode..."
   if OS.linux?
@@ -202,6 +196,48 @@ task :vscode do
     `defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false`
   end
 
+  puts "\n\nEXTENSIONS: You will want to install these extensions in vscode:\n\n"
+
+  extensions = <<-VSCEXTS
+alexdima.copy-relative-path-0.0.2
+casualjim.gotemplate-0.4.0
+christian-kohler.path-intellisense-2.3.0
+dbaeumer.vscode-eslint-2.1.14
+dotjoshjohnson.xml-2.5.1
+eg2.tslint-1.0.41
+esbenp.prettier-vscode-1.7.2
+esbenp.prettier-vscode-5.9.2
+flowtype.flow-for-vscode-1.5.0
+georgewfraser.vscode-javac-0.2.6
+gruntfuggly.save-without-format-0.0.3
+hashicorp.terraform-2.7.0
+janisdd.vscode-edit-csv-0.5.4
+jpoissonnier.vscode-styled-components-1.5.0
+kumar-harsh.graphql-for-vscode-1.15.3
+mechatroner.rainbow-csv-1.8.1
+mrded.railscasts-0.0.4
+ms-azuretools.vscode-docker-1.10.0
+ms-python.python-2020.10.332292344
+ms-python.python-2021.2.582707922
+ms-toolsai.jupyter-2021.2.576440691
+ms-vscode-remote.remote-containers-0.158.0
+ms-vscode.vscode-typescript-tslint-plugin-1.3.3
+ms-vsliveshare.vsliveshare-1.0.3784
+octref.vetur-0.22.1
+octref.vetur-0.29.0
+octref.vetur-0.32.0
+redhat.java-0.35.0
+ricard.postcss-2.0.0
+robinbentley.sass-indented-1.5.1
+shanoor.vscode-nginx-0.6.0
+sleistner.vscode-fileutils-3.4.5
+vscode-icons-team.vscode-icons-11.1.0
+vscodevim.vim-1.16.0
+waderyan.gitblame-6.0.2
+VSCEXTS
+
+  puts extensions
+
   puts "\n\nDONE CONFIGURING VSCODE...\n\n"
 end
 
@@ -211,7 +247,7 @@ task :help do
   puts "Run 'rake node' to install node and npm."
   puts "Run 'rake ruby' to install rbenv+plugins and ruby."
   puts "Run 'rake vim' to install vim+plugins."
-  puts "Run 'rake vscode' to install vscode, its config, and its extensions."
+  puts "Run 'rake vscode' to configure some helpful vscode settings."
   puts "Run 'rake install' to do all of the above."
 end
 
