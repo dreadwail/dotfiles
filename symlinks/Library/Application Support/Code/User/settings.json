@@ -25,8 +25,13 @@
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": true
   },
+  "[python]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false
+  },
+  "bookmarks.sideBar.expanded": true,
   "diffEditor.renderIndicators": false,
   "editor.autoClosingBrackets": "never",
   "editor.acceptSuggestionOnCommitCharacter": false,
@@ -49,9 +54,7 @@
     "comments": false,
     "strings": true
   },
-  "editor.rulers": [
-    120
-  ],
+  "editor.rulers": [120],
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": true,
   "editor.wordWrapColumn": 120,
@@ -73,7 +76,7 @@
     "**/.hg": true,
     "**/.DS_Store": true,
     "**/.jest": true,
-    "**/.next": true,
+    "**/.next": true
   },
   "files.associations": {
     "*.css": "postcss",
@@ -87,9 +90,8 @@
   "javascript.format.enable": false,
   "javascript.suggest.autoImports": false,
   "javascript.updateImportsOnFileMove.enabled": "never",
-  "prettier.disableLanguages": [
-    "markdown"
-  ],
+  "json.maxItemsComputed": 99999,
+  "prettier.disableLanguages": ["markdown"],
   "telemetry.enableTelemetry": false,
   "tslint.autoFixOnSave": true,
   "typescript.autoImportSuggestions.enabled": false,
@@ -107,7 +109,6 @@
   "vsicons.dontShowNewVersionMessage": true,
   "window.restoreWindows": "none",
   "window.title": "${activeEditorLong}",
-  "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
@@ -115,5 +116,5 @@
   "workbench.startupEditor": "none",
   "editor.codeLens": false,
   "editor.snippetSuggestions": "none",
-  "explorer.compactFolders": false,
+  "explorer.compactFolders": false
 }
