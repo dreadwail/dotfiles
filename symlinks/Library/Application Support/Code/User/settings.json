@@ -116,5 +116,6 @@
   "workbench.startupEditor": "none",
   "editor.codeLens": false,
   "editor.snippetSuggestions": "none",
-  "explorer.compactFolders": false
+  "explorer.compactFolders": false,
+  "prettier.printWidth": 120
 }
