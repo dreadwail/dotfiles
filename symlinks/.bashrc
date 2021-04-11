@@ -116,3 +116,15 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   shopt -s checkwinsize
 fi
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# BASH niceties
+# date with commands in history
+export HISTTIMEFORMAT="%h %d %H:%M:%S "
+# keep much more history than default
+export HISTSIZE=9999999
+# allow the history file to grow to accomodate more history
+export HISTFILESIZE=9999999
+# append to history instead of replacing it on new session
+shopt -s histappend
+# write the history immediately instead of at the end of the session
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
