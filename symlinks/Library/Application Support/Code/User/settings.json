@@ -1,36 +1,4 @@
 {
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[python]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
-  },
   "bookmarks.sideBar.expanded": true,
   "diffEditor.renderIndicators": false,
   "editor.autoClosingBrackets": "never",
@@ -39,8 +7,10 @@
     "source.fixAll.tslint": true,
     "source.fixAll.eslint": true
   },
+  "editor.codeLens": false,
   "editor.cursorBlinking": "solid",
   "editor.cursorStyle": "block",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.folding": false,
   "editor.formatOnSave": true,
   "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
@@ -54,20 +24,16 @@
     "comments": false,
     "strings": true
   },
-  "editor.rulers": [120],
+  "editor.rulers": [100],
+  "editor.snippetSuggestions": "none",
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": true,
-  "editor.wordWrapColumn": 120,
+  "editor.wordWrapColumn": 100,
   "eslint.alwaysShowStatus": true,
   "eslint.enable": true,
-  "eslint.packageManager": "yarn",
   "eslint.run": "onType",
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "explorer.compactFolders": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
   "files.exclude": {
@@ -80,21 +46,24 @@
   },
   "files.associations": {
     "*.css": "postcss",
+    ".secrets": "shellscript",
     ".workrc": "shellscript"
   },
   "flow.logLevel": "warn",
   "flow.pathToFlow": "${workspaceFolder}/node_modules/.bin/flow",
   "flow.runOnEdit": true,
   "git.enabled": false,
-  "javascript.validate.enable": true,
   "javascript.format.enable": false,
   "javascript.suggest.autoImports": false,
   "javascript.updateImportsOnFileMove.enabled": "never",
+  "javascript.validate.enable": true,
   "json.maxItemsComputed": 99999,
-  "prettier.disableLanguages": ["markdown"],
-  "telemetry.enableTelemetry": false,
+  "prettier.printWidth": 100,
+  "python.defaultInterpreterPath": "/Users/dreadwail/.pyenv/shims/python",
+  "python.pythonPath": "/Users/dreadwail/.pyenv/shims/python",
   "tslint.autoFixOnSave": true,
   "typescript.autoImportSuggestions.enabled": false,
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
   "typescript.suggest.autoImports": false,
   "typescript.updateImportsOnFileMove.enabled": "never",
   "typescript.validate.enable": true,
@@ -109,13 +78,10 @@
   "vsicons.dontShowNewVersionMessage": true,
   "window.restoreWindows": "none",
   "window.title": "${activeEditorLong}",
+  "window.zoomLevel": 1,
   "workbench.activityBar.visible": true,
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.fontAliasing": "default",
-  "workbench.startupEditor": "none",
-  "editor.codeLens": false,
-  "editor.snippetSuggestions": "none",
-  "explorer.compactFolders": false,
-  "prettier.printWidth": 120
+  "workbench.startupEditor": "none"
 }
