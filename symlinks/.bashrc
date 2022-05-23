@@ -1,5 +1,5 @@
-# Place files in ~/ and ~/bin in path
-export PATH=$PATH:$HOME:$HOME/bin
+export PATH=$PATH:$HOME
+export PATH=$PATH:$HOME/bin
 
 # Work specific configuration. Not required to be present, but picked up if available.
 WORK_CONFIG=~/.workrc
@@ -48,6 +48,7 @@ fi
 
 # Set some nice defaults/aliases for various CLI tools
 alias grep="grep --color=always"
+alias ack="ag"
 alias less="less -R"
 alias diff="colordiff"
 export EDITOR="vim"

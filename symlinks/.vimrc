@@ -1,3 +1,6 @@
+" WARNING: This vimrc has not been updated in many years.
+" Some of the plugins may not make sense anymore.
+
 " BEGIN Vundle
 set nocompatible
 filetype off

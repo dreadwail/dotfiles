@@ -2,7 +2,6 @@ require 'rake'
 require 'os'
 
 SHARED_SYMLINK_MANIFEST = [
-  ".ackrc",
   ".bash",
   ".bash_profile",
   ".bashrc",
@@ -30,9 +29,6 @@ MAC_SYMLINK_MANIFEST = [
 desc "Hook our dotfiles into system-standard positions."
 task :symlink do
   puts "\n\nSYMLINKING...\n\n"
-
-  `touch ~/.secrets`
-  `touch ~/.workrc`
 
   manifest = SHARED_SYMLINK_MANIFEST
 
@@ -72,36 +68,30 @@ task :software do
   if OS.mac?
     puts "\nMAC DETECTED. INSTALLING HOMEBREW.\n"
     # TODO: detect if brew is already installed here instead of reinstalling each time
-    system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"')
+    system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
 
     puts "\nBREWING...\n"
     `brew install icu4c`
-    `brew install node`
-    `brew install ack`
     `brew install colordiff`
+    `brew install git`
     `brew install htop`
-    `brew install httpie`
     `brew install jq`
-    `brew install macvim`
-    `brew install neovim`
-    `brew install nvm`
     `brew install readline`
-    `brew install rbenv`
-    `brew install ruby-build`
     `brew install the_silver_searcher`
     `brew install tmux`
     `brew install tree`
     `brew install watch`
     `brew install wget`
-    `brew install yarn`
   end
 
   if OS.linux?
     puts "\nLINUX DETECTED. INSTALLING APT SOFTWARE...\n"
 
-    system('sudo apt install ack bzip2 colordiff g++ git gcc htop httpie jq libreadline6 libreadline6-dev make openssl rbenv ruby-build tmux tree watch wget yarn')
+    system('sudo apt install ack bzip2 colordiff g++ git gcc htop httpie jq libreadline6 libreadline6-dev make openssl tmux tree watch wget')
     system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"')
   end
+
+  puts "IMPORTANT: Please configure your git email as appropriate (work, etc)"
 
   puts "\n\nDONE INSTALLING SOFTWARE...\n\n"
 end
@@ -109,7 +99,14 @@ end
 task :node => :software do
   puts "\n\nINSTALLING NODE WITH NVM...\n\n"
 
-  `brew install nvm`
+  if OS.mac?
+    `brew install nvm`
+  end
+
+  if OS.linux?
+    system('curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash')
+  end
+
   `mkdir -p ~/.nvm`
 
   `bash -c "source ~/.bashrc && nvm install node"`
@@ -120,6 +117,15 @@ end
 
 task :ruby => :software do
   puts "\n\nINSTALLING RUBY\n\n"
+
+  if OS.mac?
+    `brew install rbenv`
+    `brew install ruby-build`
+  end
+
+  if OS.linux?
+    system('sudo apt install rbenv ruby-build')
+  end
 
   `rbenv install -s 2.4.0`
   `rbenv global 2.4.0`
@@ -144,6 +150,7 @@ task :vim => :software do
 
   if OS.mac?
     `brew install macvim`
+    `brew install neovim`
   end
 
   if OS.linux?
@@ -183,10 +190,10 @@ end
 
 task :vscode do
   puts "\n\nCONFIGURING VSCODE...\n\n"
-
   puts "\n\n ***** PLEASE NOTE: You must separately install vscode manually for your respective OS.\n\n"
 
   puts "Configuring OS-level things for vscode..."
+
   if OS.linux?
     `xdg-mime default code.desktop text/plain`
   end
@@ -217,14 +224,11 @@ kumar-harsh.graphql-for-vscode-1.15.3
 mechatroner.rainbow-csv-1.8.1
 mrded.railscasts-0.0.4
 ms-azuretools.vscode-docker-1.10.0
-ms-python.python-2020.10.332292344
 ms-python.python-2021.2.582707922
 ms-toolsai.jupyter-2021.2.576440691
 ms-vscode-remote.remote-containers-0.158.0
 ms-vscode.vscode-typescript-tslint-plugin-1.3.3
 ms-vsliveshare.vsliveshare-1.0.3784
-octref.vetur-0.22.1
-octref.vetur-0.29.0
 octref.vetur-0.32.0
 redhat.java-0.35.0
 ricard.postcss-2.0.0

@@ -1,9 +1,0 @@
---ignore-dir=coverage/
---ignore-dir=log/
---ignore-dir=.grunt/
---ignore-file=match:tags
---ignore-file=ext:lct
---ignore-dir=dist/
---ignore-dir=vendor/lib/
---ignore-dir=.jest/
---ignore-file=match:\.bundle\.js

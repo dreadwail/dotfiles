@@ -1,6 +1,6 @@
 {
   "parser": "typescript",
-  "printWidth": 120,
+  "printWidth": 100,
   "singleQuote": true,
   "trailingComma": "es5",
   "overrides": [
@@ -13,7 +13,7 @@
       "options": { "parser": "graphql" }
     },
     {
-      "files": ["*.json", ".*rc"],
+      "files": ["*.json"],
       "options": { "parser": "json" }
     },
     {
