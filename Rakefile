@@ -59,6 +59,8 @@ task :symlink do
     `ln -s "#{source}" "#{target}"`
   end
 
+  puts "IMPORTANT: Please configure your git email as appropriate (work, etc)"
+
   puts "\n\nDONE SYMLINKING...\n\n"
 end
 
@@ -67,10 +69,11 @@ task :software do
 
   if OS.mac?
     puts "\nMAC DETECTED. INSTALLING HOMEBREW.\n"
+
     # TODO: detect if brew is already installed here instead of reinstalling each time
     system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
 
-    puts "\nBREWING...\n"
+    puts "\nINSTALLING SOFTWARE VIA BREW...\n"
     `brew install icu4c`
     `brew install colordiff`
     `brew install git`
@@ -90,8 +93,6 @@ task :software do
     system('sudo apt install ack bzip2 colordiff g++ git gcc htop httpie jq libreadline6 libreadline6-dev make openssl tmux tree watch wget')
     system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"')
   end
-
-  puts "IMPORTANT: Please configure your git email as appropriate (work, etc)"
 
   puts "\n\nDONE INSTALLING SOFTWARE...\n\n"
 end
