@@ -13,3 +13,4 @@
 .settings/
 .classpath
 tags
+symlinks/.vscode/extensions/
