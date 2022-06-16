@@ -25,6 +25,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   defaults write com.google.Chrome.plist AppleEnableSwipeNavigateWithScrolls -bool FALSE
   defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
 
+  # enable key-repeating in vscode vim
+  defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
+
   # MacVim
   export PATH=$PATH:$HOME/.macvim
   alias vi="mvim -v"

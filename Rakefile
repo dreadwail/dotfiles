@@ -85,6 +85,7 @@ task :software do
     `brew install tree`
     `brew install watch`
     `brew install wget`
+    `brew install neovim`
   end
 
   if OS.linux?

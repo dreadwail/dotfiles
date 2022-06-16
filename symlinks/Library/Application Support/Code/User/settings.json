@@ -70,7 +70,7 @@
   "vim.enableNeovim": true,
   "vim.ignorecase": false,
   "vim.incsearch": false,
-  "vim.neovimPath": "/usr/local/bin/nvim",
+  "vim.neovimPath": "/opt/homebrew/bin/nvim",
   "vim.showcmd": true,
   "vim.startInInsertMode": false,
   "vim.useCtrlKeys": true,
