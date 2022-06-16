@@ -1,11 +1,8 @@
 export PATH=$PATH:$HOME
 export PATH=$PATH:$HOME/bin
 
-# Work specific configuration. Not required to be present, but picked up if available.
-WORK_CONFIG=~/.workrc
-if [ -f $WORK_CONFIG ]; then
-  source $WORK_CONFIG
-fi
+# brew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # File containing secrets (not committed to source control).
 # Not required to be present, but picked up if available.
@@ -118,3 +115,22 @@ listening() {
 portslay() {
    kill -9 `lsof -i tcp:$1 | tail -1 | awk '{ print $2;}'`
 }
+
+# Java
+export PATH="$HOME/.jenv/bin:$PATH"
+if [ -x "$(command -v jenv)" ]; then
+  eval "$(jenv init -)"
+  eval "jenv global 11.0"
+fi
+export PATH=$PATH:~/maven/bin
+
+# Postgres
+export PATH="/opt/homebrew/opt/postgresql@10/bin:$PATH"
+
+# Work specific configuration. Not required to be present, but picked up if available.
+WORK_CONFIG=~/.workrc
+if [ -f $WORK_CONFIG ]; then
+  source $WORK_CONFIG
+fi
+
+
