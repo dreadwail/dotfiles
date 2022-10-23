@@ -11,6 +11,8 @@ if [ -f $SECRETS_CONFIG ]; then
   source $SECRETS_CONFIG
 fi
 
+alias ls='ls --color=auto'
+
 # If this is a mac, wire up some mac specific commands and defaults
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias nosleep="caffeinate -d -i -m -s"
@@ -33,12 +35,9 @@ fi
 
 # If this is a linux machine, wire up some linux specific commands and defaults
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  export LS_OPTIONS='--color=auto'
   eval "$(dircolors -b)"
-  alias ls='ls $LS_OPTIONS'
-  alias grep='grep $LS_OPTIONS'
-  alias fgrep='fgrep $LS_OPTIONS'
-  alias egrep='egrep $LS_OPTIONS'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
 
   # check the window size after each command and, if necessary,
   # update the values of LINES and COLUMNS.
@@ -47,7 +46,6 @@ fi
 
 
 # Set some nice defaults/aliases for various CLI tools
-alias grep="grep --color=always"
 alias ack="ag"
 alias less="less -R"
 alias diff="colordiff"
