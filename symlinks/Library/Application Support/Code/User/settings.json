@@ -52,7 +52,7 @@
   "flow.logLevel": "warn",
   "flow.pathToFlow": "${workspaceFolder}/node_modules/.bin/flow",
   "flow.runOnEdit": true,
-  "git.enabled": false,
+  "git.enabled": true,
   "javascript.format.enable": false,
   "javascript.suggest.autoImports": false,
   "javascript.updateImportsOnFileMove.enabled": "never",
@@ -78,11 +78,17 @@
   "vsicons.dontShowNewVersionMessage": true,
   "window.restoreWindows": "none",
   "window.title": "${activeEditorLong}",
-  "window.zoomLevel": 1,
   "workbench.activityBar.visible": true,
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.fontAliasing": "default",
   "workbench.startupEditor": "none",
-  "workbench.iconTheme": "vscode-icons"
+  "workbench.iconTheme": "vscode-icons",
+  "editor.unicodeHighlight.allowedCharacters": {
+    " ": true
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "window.zoomLevel": 1
 }
