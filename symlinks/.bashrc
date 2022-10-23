@@ -130,6 +130,9 @@ cdnvm() {
 alias cd='cdnvm'
 cd "$PWD"
 
+# React Testing Library stupidness
+DEBUG_PRINT_LIMIT=99999999
+
 # Python
 export PATH="$HOME/.pyenv/bin:$PATH"
 if [ -x "$(command -v pyenv)" ]; then
