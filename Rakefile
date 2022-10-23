@@ -79,13 +79,14 @@ task :software do
     `brew install git`
     `brew install htop`
     `brew install jq`
+    `brew install neovim`
     `brew install readline`
     `brew install the_silver_searcher`
     `brew install tmux`
     `brew install tree`
     `brew install watch`
+    `brew install watchman`
     `brew install wget`
-    `brew install neovim`
   end
 
   if OS.linux?
