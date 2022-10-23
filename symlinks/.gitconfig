@@ -3,6 +3,11 @@
   email = dreadwail42@gmail.com
 [color]
   ui = true
+  pager = true
+  diff = always
+  status = always
+  branch = always
+  interactive = always
 [core]
   editor = vim
   pager = less -r
