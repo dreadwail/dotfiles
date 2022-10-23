@@ -161,6 +161,16 @@ portslay() {
    kill -9 `lsof -i tcp:$1 | tail -1 | awk '{ print $2;}'`
 }
 
+# the ever-evolving variations on clearing DNS from macos
+dnsflush() {
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    sudo dscacheutil -flushcache
+    sudo killall -HUP mDNSResponder
+  else
+    echo "Not implemented for non-macOS platforms!"
+  fi
+}
+
 # Java
 export PATH="$HOME/.jenv/bin:$PATH"
 if [ -x "$(command -v jenv)" ]; then
