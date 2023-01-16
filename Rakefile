@@ -45,7 +45,7 @@ task :symlink do
   manifest.each do |linkable|
     target = "#{ENV["HOME"]}/#{linkable}"
     existed = false
-    if File.exists?(target) || File.symlink?(target)
+    if File.exist?(target) || File.symlink?(target)
       existed = true
 
       `mv "#{target}" "#{target}.backup"`
@@ -70,8 +70,9 @@ task :software do
   if OS.mac?
     puts "\nMAC DETECTED. INSTALLING HOMEBREW.\n"
 
-    # TODO: detect if brew is already installed here instead of reinstalling each time
-    system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
+    if !system('which brew')
+      system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
+    end
 
     puts "\nINSTALLING SOFTWARE VIA BREW...\n"
     `brew install icu4c`
@@ -107,13 +108,19 @@ task :node => :software do
   end
 
   if OS.linux?
-    system('curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash')
+    system('curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash')
   end
 
   `mkdir -p ~/.nvm`
 
   `bash -c "source ~/.bashrc && nvm install node"`
   `bash -c "source ~/.bashrc && nvm use node"`
+
+  `nvm install 18.13.0`
+  `nvm use 18.13.0`
+  `nvm alias default 18.13.0`
+
+  `npm install -g yarn`
 
   puts "\n\nDONE INSTALLING NODE WITH NVM...\n\n"
 end
@@ -142,8 +149,8 @@ task :python => :software do
 
   `rm -rf ~/.pyenv`
   `curl https://pyenv.run | bash`
-  `pyenv install 3.6.8`
-  `pyenv global 3.6.8`
+  `pyenv install 3.11.1`
+  `pyenv global 3.11.1`
 
   puts "\n\nDONE INSTALLING PYTHON...\n\n"
 end
@@ -183,7 +190,7 @@ task :uninstall do
     end
 
     # Replace any backups made during installation
-    if File.exists?("#{ENV["HOME"]}/.#{file}.backup")
+    if File.exist?("#{ENV["HOME"]}/.#{file}.backup")
       `mv "$HOME/.#{file}.backup" "$HOME/.#{file}"`
     end
   end
