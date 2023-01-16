@@ -70,7 +70,7 @@
   "vim.enableNeovim": true,
   "vim.ignorecase": false,
   "vim.incsearch": false,
-  "vim.neovimPath": "/opt/homebrew/bin/nvim",
+  "vim.neovimPath": "/usr/local/bin/nvim",
   "vim.showcmd": true,
   "vim.startInInsertMode": false,
   "vim.useCtrlKeys": true,
@@ -90,5 +90,6 @@
   "security.workspace.trust.untrustedFiles": "open",
   "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
-  "window.zoomLevel": 1
+  "window.zoomLevel": 1,
+  "workbench.colorTheme": "RailsCasts"
 }

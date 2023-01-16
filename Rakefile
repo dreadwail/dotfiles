@@ -216,38 +216,31 @@ task :vscode do
   puts "\n\nEXTENSIONS: You will want to install these extensions in vscode:\n\n"
 
   extensions = <<-VSCEXTS
-alexdima.copy-relative-path-0.0.2
-casualjim.gotemplate-0.4.0
-christian-kohler.path-intellisense-2.3.0
-dbaeumer.vscode-eslint-2.1.14
-dotjoshjohnson.xml-2.5.1
-eg2.tslint-1.0.41
-esbenp.prettier-vscode-1.7.2
-esbenp.prettier-vscode-5.9.2
-flowtype.flow-for-vscode-1.5.0
-georgewfraser.vscode-javac-0.2.6
-gruntfuggly.save-without-format-0.0.3
-hashicorp.terraform-2.7.0
-janisdd.vscode-edit-csv-0.5.4
-jpoissonnier.vscode-styled-components-1.5.0
-kumar-harsh.graphql-for-vscode-1.15.3
-mechatroner.rainbow-csv-1.8.1
-mrded.railscasts-0.0.4
-ms-azuretools.vscode-docker-1.10.0
-ms-python.python-2021.2.582707922
-ms-toolsai.jupyter-2021.2.576440691
-ms-vscode-remote.remote-containers-0.158.0
-ms-vscode.vscode-typescript-tslint-plugin-1.3.3
-ms-vsliveshare.vsliveshare-1.0.3784
-octref.vetur-0.32.0
-redhat.java-0.35.0
-ricard.postcss-2.0.0
-robinbentley.sass-indented-1.5.1
-shanoor.vscode-nginx-0.6.0
-sleistner.vscode-fileutils-3.4.5
-vscode-icons-team.vscode-icons-11.1.0
-vscodevim.vim-1.16.0
-waderyan.gitblame-6.0.2
+alexdima.copy-relative-path
+casualjim.gotemplate
+christian-kohler.path-intellisense
+dbaeumer.vscode-eslint
+dotjoshjohnson.xml
+eamodio.gitlens
+esbenp.prettier-vscode
+gruntfuggly.save-without-format
+hashicorp.terraform
+janisdd.vscode-edit-csv
+vscode-styled-components
+kumar-harsh.graphql-for-vscode
+mechatroner.rainbow-csv
+mrded.railscasts
+ms-azuretools.vscode-docker
+ms-python.python
+ms-toolsai.jupyter
+ms-vscode-remote.remote-containers
+redhat.java
+ricard.postcss
+shanoor.vscode-nginx
+sleistner.vscode-fileutils
+syler.sass-indented
+vscode-icons-team.vscode-icons
+vscodevim.vim
 VSCEXTS
 
   puts extensions
