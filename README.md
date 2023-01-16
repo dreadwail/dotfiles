@@ -2,9 +2,7 @@
 
 ### Prerequisites
 
-If you are on a mac you need to install XCode and accept the license:
-
-`sudo xcodebuild -license`
+If you are on a mac you need to install XCode and accept the license.
 
 ### Install
 
