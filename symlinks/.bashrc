@@ -64,13 +64,19 @@ export HISTFILESIZE=9999999
 shopt -s histappend
 # write the history immediately instead of at the end of the session
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
-# Git-aware prompt and tab completion
+
+# Git
 source ~/.bash/git-completion.sh
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
-# Create a visually nice git-aware shell prompt
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # Required on MacOS Monterey or newer
+  ssh-add --apple-use-keychain ~/.ssh/id_rsa
+fi
+
+# Shell customization and colors
 export PS1="\W \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\[$txtgrn\] \$\[$txtrst\] "
-# Shell colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 export LS_COLORS=GxFxCxDxBxegedabagaced
