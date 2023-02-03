@@ -90,6 +90,5 @@
   "security.workspace.trust.untrustedFiles": "open",
   "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
-  "window.zoomLevel": 1,
-  "workbench.colorTheme": "RailsCasts"
+  "window.zoomLevel": 1
 }
