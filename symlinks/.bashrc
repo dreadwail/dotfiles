@@ -16,7 +16,7 @@ alias ls='ls --color=auto'
 
 # If this is a mac, wire up some mac specific commands and defaults
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias nosleep="caffeinate -d -i -m -s"
+  alias nosleep="caffeinate -dimsu"
 
   # per-process macos resource limits
   ulimit -n 524288 524288
