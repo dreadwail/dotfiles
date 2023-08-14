@@ -21,6 +21,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   # per-process macos resource limits
   ulimit -n 524288 524288
 
+  # dont pop up menus when holding keys; repeat keys as normal instead.
+  defaults write -g ApplePressAndHoldEnabled -bool false
+
   # dont use chrome gestures to navigate
   defaults write com.google.Chrome.plist AppleEnableSwipeNavigateWithScrolls -bool FALSE
   defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
