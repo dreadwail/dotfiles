@@ -226,7 +226,6 @@ mechatroner.rainbow-csv
 mrded.railscasts
 ms-azuretools.vscode-docker
 ms-python.python
-ms-toolsai.jupyter
 ms-vscode-remote.remote-containers
 redhat.java
 ricard.postcss
