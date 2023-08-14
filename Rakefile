@@ -103,13 +103,7 @@ end
 task :node => :software do
   puts "\n\nINSTALLING NODE WITH NVM...\n\n"
 
-  if OS.mac?
-    `brew install nvm`
-  end
-
-  if OS.linux?
-    system('curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash')
-  end
+  system('curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash');
 
   `mkdir -p ~/.nvm`
 
