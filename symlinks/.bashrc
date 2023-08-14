@@ -73,7 +73,7 @@ source "${GITAWAREPROMPT}/main.sh"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # Required on MacOS Monterey or newer
-  ssh-add --apple-use-keychain -q ~/.ssh/id_rsa
+  ssh-add --apple-use-keychain -q ~/.ssh/id_ed25519
 fi
 
 # Shell customization and colors
