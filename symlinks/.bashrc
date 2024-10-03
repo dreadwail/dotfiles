@@ -16,7 +16,7 @@ alias ls='ls --color=auto'
 
 # If this is a mac, wire up some mac specific commands and defaults
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias nosleep="caffeinate -dimsu"
+  alias nosleep="caffeinate -ims"
 
   # per-process macos resource limits
   ulimit -n 524288 524288
@@ -73,6 +73,7 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 source ~/.bash/git-completion.sh
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
+export GIT_PAGER=cat git diff
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # Required on MacOS Monterey or newer
